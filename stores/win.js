@@ -13,9 +13,9 @@ export default class WinStore {
         });
     }
 
-  @action startLivePeer = () => {
-      // Start livepeer
-      ipcRenderer.send('startLivepeer');
+  @action startIguana = () => {
+      // Start Iguana
+      ipcRenderer.send('startIguana');
   }
 
   @action toggle = () => {

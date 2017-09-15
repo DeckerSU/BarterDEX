@@ -4,7 +4,8 @@ import {
         Header,
         Footer,
         Placeholder,
-        Notifier } from '../components';
+        Notifier,
+        Dashboard } from '../components';
 
 import classNames from 'classnames';
 
@@ -31,7 +32,7 @@ class Home extends React.Component {
           <content className={this.getClassState()}>
             <Header />
             <section className="app-view">
-              { hasLoading === 0 ? 'ready' : <Placeholder /> }
+              { hasLoading === 0 ? <Dashboard /> : <Placeholder /> }
             </section>
             <Notifier />
             <Footer />

@@ -29,7 +29,7 @@ const stores = {
 
 setTimeout(() => {
     /* let the app bootstrap and events beeing registered... */
-    stores.win.startLivePeer();
+    stores.win.startIguana();
 }, 1000);
 
 

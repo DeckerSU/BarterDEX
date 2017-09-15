@@ -27,6 +27,14 @@
 .note { opacity: .8 }
 .note b { color: $red }
 
+[class*='amount'] { font-family: 'Unica One', sans-serif; }
+.amount-positive {
+    color: rgba(102, 215, 155, 1);
+    background-color: rgba(102, 215, 155, .1);
+    padding: 0px 2px;
+    border-radius: 6px;
+}
+
 code {
     margin: 20px 0;
     background: $background-primary;
