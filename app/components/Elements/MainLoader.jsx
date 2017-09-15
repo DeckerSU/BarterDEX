@@ -1,20 +1,20 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react';
 import classNames from 'classnames';
-import CONSTANTS from '../../constants';
+import CONSTANTS from '../../../constants';
 import circles from '../../static/circles.svg';
 
-@inject('video')
+@inject('app')
 @observer
-class Loader extends React.Component {
+class MainLoader extends React.Component {
 
     getClassState = () => classNames({
         loader: true
     })
 
     render() {
-        const { store: loading } = this.props.video.loader;
-        const { errors } = this.props.video.notifier;
+        const { store: loading } = this.props.app.loader;
+        const { errors } = this.props.app.notifier;
 
         if (errors.length > 0) {
             // don't display loader when there is an error...
@@ -33,4 +33,4 @@ class Loader extends React.Component {
 }
 
 
-export default Loader
+export default MainLoader

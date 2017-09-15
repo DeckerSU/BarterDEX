@@ -1,10 +1,10 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react';
 import classNames from 'classnames';
-import CONSTANTS from '../../constants';
+import CONSTANTS from '../../../constants';
 import angry from '../../static/angry.svg';
 
-@inject('video')
+@inject('app')
 @observer
 class Notifier extends React.Component {
     constructor(props) {
@@ -16,7 +16,7 @@ class Notifier extends React.Component {
     }
 
     getClassState = () => {
-        const { errors } = this.props.video.notifier;
+        const { errors } = this.props.app.notifier;
 
         return classNames({
             notifier: true,
@@ -26,7 +26,7 @@ class Notifier extends React.Component {
     }
 
     componentWillReact = () => {
-        const { errors } = this.props.video.notifier;
+        const { errors } = this.props.app.notifier;
         /* critical mean an app restart is required (eg: camera is busy) */
         let isCritical;
         const listErrors = errors.map((key, i) => {
@@ -42,7 +42,7 @@ class Notifier extends React.Component {
     }
 
     render() {
-        const { clearAllErrors, refreshApp } = this.props.video.notifier;
+        const { clearAllErrors, refreshApp } = this.props.app.notifier;
 
         return (
           <div className={this.getClassState()}>

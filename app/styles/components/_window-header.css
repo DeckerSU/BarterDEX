@@ -19,6 +19,7 @@
     @extend .webkit-drag;
     -webkit-app-region: drag;
     cursor: -webkit-grab;
+    z-index: 10000
 }
 
 .window-header ul {

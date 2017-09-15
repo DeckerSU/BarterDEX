@@ -3,11 +3,11 @@
 */
 import { app, BrowserWindow, Menu, ipcMain } from 'electron';
 import { ElectronMenu } from './menu';
-import { LivePeerAPI } from './api';
-import { electronEvents, ffmpegEvents, livepeerEvents } from './events';
+import { API } from './api';
+import { electronEvents, iguanaEvents } from './events';
 import { main } from './config/config';
 
-const api = new LivePeerAPI();
+const api = new API();
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -53,8 +53,7 @@ app.on('ready', async () => {
         const eventsElectron = { app, mainWindow, api, config: main, listener: ipcMain };
 
         electronEvents(eventsElectron);
-        // livepeerEvents(eventsConfig);
-        // ffmpegEvents(eventsConfig);
+        iguanaEvents(eventsConfig);
     });
 
     mainWindow.on('closed', () => { mainWindow = null })

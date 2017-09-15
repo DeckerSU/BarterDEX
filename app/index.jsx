@@ -5,7 +5,7 @@ import { Provider } from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
 
 import { Home, Counter } from './containers';
-import { VideoStore, WinStore } from './stores';
+import { AppStore, WinStore } from '../stores';
 import './styles/main.css';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -22,7 +22,7 @@ if (module.hot && isDev) {
 
 
 const stores = {
-    video: new VideoStore(),
+    app: new AppStore(),
     win: new WinStore()
 };
 

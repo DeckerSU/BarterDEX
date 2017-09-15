@@ -3,45 +3,36 @@ import { inject, observer } from 'mobx-react'
 import {
         Header,
         Footer,
-        Loader,
         Placeholder,
-        Controls,
         Notifier } from '../components';
 
 import classNames from 'classnames';
 
-@inject('video')
+@inject('app')
 @observer
 class Home extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    getClassState = () => {
-        const { broadcasting, playing, loader } = this.props.video;
-        const hasLoading = loader.store.length;
 
+    getClassState = () => {
+        const { loader } = this.props.app;
+        const hasLoading = loader.store.length;
 
         return classNames({
             app: true,
             'content-container': true,
-            waiting: !playing && !broadcasting,
-            recording: broadcasting,
-            playing,
             loading: hasLoading
         })
     }
 
     render() {
-        const { broadcasting, playing, loader } = this.props.video;
+        const { loader } = this.props.app;
         const hasLoading = loader.store.length;
 
         return (
           <content className={this.getClassState()}>
             <Header />
-            { ((!broadcasting && !playing) || hasLoading > 0) && <Placeholder /> }
-            <div className="app-actions">
-              { hasLoading === 0 ? <Controls /> : <Loader /> }
-            </div>
+            <section className="app-view">
+              { hasLoading === 0 ? 'ready' : <Placeholder /> }
+            </section>
             <Notifier />
             <Footer />
           </content>

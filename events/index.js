@@ -1,3 +1,2 @@
 export * from './events.electron';
-export * from './events.ffmpeg';
-export * from './events.livepeer';
+export * from './events.iguana';

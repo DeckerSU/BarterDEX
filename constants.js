@@ -2,7 +2,7 @@ const CONSTANTS = {
     loading: {
         0: 'App Initialization',
         1: 'Starting Livepeer Node',
-        2: 'Starting Iguana',
+        2: 'starting Iguana',
         3: 'Start Broadcasting',
         4: 'Starting Streaming Node'
     },

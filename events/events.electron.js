@@ -1,6 +1,5 @@
 /*
-    Listener to dialog bettween dependencies (LivePeer, FFMpeg, Electron) and the app
-    @return a events received in the stores
+    Electron Events handler
 */
 
 import log from 'electron-log';
@@ -15,22 +14,11 @@ export const electronEvents = ({ app, mainWindow, api, listener }) => {
         mainWindow.webContents.send('loading', args);
     })
 
-    api.on('peerCount', (args) => {
-        mainWindow.webContents.send('peerCount', args);
-    })
-
     // Close properly
     const close = () => {
         // On OS X it is common for applications and their menu bar
         // to stay active until the user quits explicitly with Cmd + Q
         log.info('All windows closed.  Shutting down FFMpeg and Livepeer...')
-
-        api.stopFFMpeg().then(() => {
-            api.stopLivepeer().then(() => {
-                api.stopEmitter();
-                mainWindow.close();
-            })
-        });
     }
 
     /*
