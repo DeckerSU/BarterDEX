@@ -1,0 +1,33 @@
+.Placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 2.4em;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.Placeholder-logo {
+    @extend .flexCenter;
+}
+
+.Placeholder-logo svg {
+    width: 500px;
+    height: 500px;
+}
+
+
+.Placeholder-tagline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.Placeholder-text {
+    font-weight: 600;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
