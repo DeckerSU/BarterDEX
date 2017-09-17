@@ -26,13 +26,13 @@ $green: #1DB954;
 $font-size-default:    1em;
 
 /* Backgrounds */
-$background-primary:   rgba(18, 18, 19, 1);
-$background-secondary: $grey-dark;
+$background-primary:   #F9FBFD;
+$background-secondary: #FFFFFF;
 $background-light:     #111;
 
 /* Typography */
 $color-primary:        #6547DF;
-$color-secondary:      #FFF;
+$color-secondary:      #404656;
 $color-dark:           $grey;
 $divider-color:        $grey-dark;
 $box-shadow-inputs:    0 1px 1px 0 rgba(0, 0, 0, .2),

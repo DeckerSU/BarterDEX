@@ -27,13 +27,27 @@
 .note { opacity: .8 }
 .note b { color: $red }
 
-[class*='amount'] { font-family: 'Unica One', sans-serif; }
-.amount-positive {
-    color: rgba(102, 215, 155, 1);
-    background-color: rgba(102, 215, 155, .1);
+[class*='amount'] {
+    font-family: 'Unica One', sans-serif;
+}
+
+.amount-positive,
+.amount-negative {
     padding: 0px 2px;
     border-radius: 6px;
 }
+
+.amount-positive {
+    color: rgba(102, 215, 155, 1);
+    background-color: rgba(102, 215, 155, .1);
+}
+
+.amount-negative {
+    color: #E24E40;
+    background-color: rgba(226, 78, 64, .1)
+}
+
+
 
 code {
     margin: 20px 0;

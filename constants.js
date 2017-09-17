@@ -13,6 +13,11 @@ const CONSTANTS = {
             loadingKeys: [1],
             critical: true
         }
+    },
+    colors: {
+        KMD: '#326464',
+        BTC: '#F7931A',
+        ETH: '#4C7494'
     }
 };
 
