@@ -1,13 +1,12 @@
 ![alt text](https://github.com/buildog/LivepeerDesktop/raw/release/react/resources/github/logoWithPunchline.png)
-This application connects to the **[Livepeer Toynet](https://github.com/livepeer/wiki/wiki/Toynet)**, and showcases the basic functionalities of the **[Livepeer network](https://livepeer.org)**.
 
 ## Electron (Node.js)
 
 #### Quick start
 
 ```
-git clone git@github.com:livepeer/LivepeerDesktop.git
-cd LivepeerDesktop
+git clone git@github.com:buildog/BarterDEX.git
+cd BarterDEX
 npm install
 npm start
 ```
@@ -23,7 +22,7 @@ npm start
 
 
 ## Apps
-:hourglass:  apps for Mac, Win and linux will be available soon, just **a matter of days**.
+**wip**.
 
 ## Package release
 
@@ -48,13 +47,11 @@ sudo killall VDCAssistant AppleCameraAssistant
 [Mobx](https://github.com/mobxjs/mobx) |
 [Webpack](https://webpack.github.io/)  |
 [Electron](https://github.com/electron/electron)  |
-[PostCSS](https://github.com/postcss/postcss)  |
-[VideoJS](http://videojs.com)  | **and a lot of love** 😍
+[PostCSS](https://github.com/postcss/postcss)  | **and a lot of 😍**
 
 
 ## Contributing
-The best way to contribute is by looking at the [issues](https://github.com/livepeer/LivepeerDesktop/issues) in this repo.  
-For details and process of contributing to Livepeer in general, please read [CONTRIBUTING.md](https://github.com/livepeer/wiki/blob/master/CONTRIBUTING.md).
+The best way to contribute is by looking at the [issues](https://github.com/buildog/BarterDEX/issues) in this repo.  
 
-## License
-This repository is licensed under the GNU General Public License v3.0, also included in our repository in the [COPYING](https://github.com/livepeer/LivepeerDesktop/blob/master/COPYING) file.
+## License and disclamer
+This repository is licensed under the GNU General Public License v3.0, also included in our repository in the [COPYING](https://github.com/buildog/BarterDEX/blob/master/COPYING) file.
