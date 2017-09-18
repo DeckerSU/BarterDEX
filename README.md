@@ -1,4 +1,4 @@
-![alt text](https://github.com/buildog/BarterDEX/raw/release/react/resources/github/logoWithPunchline.png)
+![alt text](https://github.com/buildog/BarterDEX/raw/master/resources/github/logoWithPunchline.png)
 
 ## Electron (Node.js)
 
