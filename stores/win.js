@@ -14,9 +14,18 @@ export default class WinStore {
     }
 
   @action startIguana = () => {
-      // Start Iguana
       ipcRenderer.send('startIguana');
   }
+
+  @action watchMarket = () => {
+      ipcRenderer.send('watchMarket');
+  }
+
+
+  @action initializePortfolio = () => {
+      ipcRenderer.send('initializePortfolio');
+  }
+
 
   @action toggle = () => {
       ipcRenderer.send('toggle-fullscreen-editor-window');

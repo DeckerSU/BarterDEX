@@ -2,7 +2,7 @@ import { observable } from 'mobx';
 import { ipcRenderer } from 'electron';
 
 export default class LoaderStore {
-      @observable store = [1]; /* initial is pending Iguana bootstrap*/
+      @observable store = [1, 2, 3]; /* initial is pending Iguana bootstrap*/
 
     constructor() {
           // listener for loading state change

@@ -4,7 +4,7 @@
 import { app, BrowserWindow, Menu, ipcMain } from 'electron';
 import { ElectronMenu } from './menu';
 import { API } from './api';
-import { electronEvents, iguanaEvents } from './events';
+import { electronEvents, iguanaEvents, marketEvents, portfolioEvents } from './events';
 import { main } from './config/config';
 
 const api = new API();
@@ -38,7 +38,7 @@ app.on('ready', async () => {
         width: 1024,
         height: 728,
         frame: false,
-        backgroundColor: '#04050A',
+        backgroundColor: '#F7FAFC',
         show: false
     })
 
@@ -54,6 +54,8 @@ app.on('ready', async () => {
 
         electronEvents(eventsElectron);
         iguanaEvents(eventsConfig);
+        marketEvents(eventsConfig);
+        portfolioEvents(eventsConfig);
     });
 
     mainWindow.on('closed', () => { mainWindow = null })

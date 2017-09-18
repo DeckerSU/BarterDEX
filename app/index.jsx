@@ -30,6 +30,8 @@ const stores = {
 setTimeout(() => {
     /* let the app bootstrap and events beeing registered... */
     stores.win.startIguana();
+    stores.win.watchMarket();
+    stores.win.initializePortfolio();
 }, 1000);
 
 

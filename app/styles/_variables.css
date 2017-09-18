@@ -26,13 +26,14 @@ $green: #1DB954;
 $font-size-default:    1em;
 
 /* Backgrounds */
-$background-primary:   #F9FBFD;
-$background-secondary: #FFFFFF;
+$background-primary:   #F7FAFC;
+$background-secondary: #FFF;
 $background-light:     #111;
 
 /* Typography */
-$color-primary:        #6547DF;
-$color-secondary:      #404656;
+$color-primary:        #9D9CF8;
+$color-secondary:      #10213E;
+$color-gray:           #606574;
 $color-dark:           $grey;
 $divider-color:        $grey-dark;
 $box-shadow-inputs:    0 1px 1px 0 rgba(0, 0, 0, .2),
@@ -44,3 +45,10 @@ $window-border-radius: 5px;
 /* height */
 $footer-height: 100px;
 $action-size: 110px;
+
+
+$color-KMD: rgb(50,100,100);
+$color-BTC: rgb(247,147,26);
+$color-ETH: rgb(76,116,148);
+$color-LTC: rgba(184, 184, 184, 1);
+$color-NEO: rgba(90, 193, 0, 1)

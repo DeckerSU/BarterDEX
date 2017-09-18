@@ -2,6 +2,7 @@ import React from 'react'
 import { ipcRenderer } from 'electron';
 import close from '../../static/traffic-light-close.svg';
 import minimize from '../../static/traffic-light-minimize.svg';
+import maximize from '../../static/traffic-light-maximize.svg';
 
 
 class Header extends React.Component {
@@ -27,6 +28,11 @@ class Header extends React.Component {
                   onClick={() => this.minimizeWindow()}
                   className="window__controls-minimize"
                   dangerouslySetInnerHTML={{ __html: minimize }}
+                />
+                <a
+                  onClick={() => this.minimizeWindow()}
+                  className="window__controls-maximize"
+                  dangerouslySetInnerHTML={{ __html: maximize }}
                 />
               </li>
               <li className="window__title" />

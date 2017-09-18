@@ -4,9 +4,6 @@
 
 
 export const iguanaEvents = ({ api, emitter, listener }) => {
-    /*
-        Toggle the broadcaster state
-    */
     listener.on('startIguana', (event) => {
         /* Intercept actions from app and trigger api endpoints */
         /* setTiemout just for testing purpose*/

@@ -1,21 +1,14 @@
-import { observable } from 'mobx';
+import { observable, action } from 'mobx';
+import { ipcRenderer } from 'electron';
 
-import io from 'socket.io-client';
 
-const request = require('request');
 const formatCurrency = require('format-currency')
 
 
 import { colors } from '../constants'
 
 export default class PortfolioStore {
-     @observable portfolio = [
-        { name: 'Komodo', short: 'KMD', balance: 17400, evolution: 40.1 },
-        { name: 'Bitcoin', short: 'BTC', balance: 0.2, evolution: 20.1 },
-        { name: 'Ethereum', short: 'ETH', balance: 10, evolution: -0.1 }
-     ];
-
-     @observable market = {};
+     @observable portfolio = [];
 
      @observable fiatRates = {
          eur: 3000,
@@ -26,32 +19,39 @@ export default class PortfolioStore {
 
     colors = colors;
 
-    constructor({ defaultFiat }) {
+    constructor({ defaultFiat, defaultCrypto, marketStore }) {
+        this.market = marketStore;
         this.defaultCurrency = defaultFiat;
+        this.defaultCrypto = defaultCrypto;
         this.formatFIAT = { format: '%s%v', symbol: this.defaultCurrency.symbol }
+        this.formatCrypto = { format: '%v %c', code: defaultCrypto, maxFraction: 8 };
+
         const self = this;
 
-        request('http://coincap.io/front', (error, response, body) => {
-            self.market = JSON.parse(body);
-            // update porfolio valuation in term of BTC
-            self.portfolio.forEach(({ short }, key) => {
-                const market = self.getCoin(short);
-                const btc = self.getCoin('BTC');
-                self.portfolio[key].btcBalance = (self.portfolio[key].balance * market.price) / btc.price;
-                self.portfolio[key].usd = self.portfolio[key].balance * market.price;
-            });
-        });
-
-        /* subscribe to updates */
-        const socket = io.connect('http://socket.coincap.io/front');
-        socket.on('trades', (msg) => {
-            const { short, price } = msg;
-            self.rates[short] = price;
-        })
+        ipcRenderer.on('initializePortfolio', (e, { portfolio }) => { self.initializePortfolio(portfolio) });
+        ipcRenderer.on('portfolioUpdate', () => { self.portfolioUpdate() });
     }
 
-    getCoin = (short) => this.market.filter((coin) => coin.short === short)[0];
+    getCoin = (short) => this.market.getMarket().filter((coin) => coin.short === short)[0];
     getPortfolioCoin = (short) => this.portfolio.filter((coin) => coin.short === short)[0];
+
+    @action initializePortfolio = (portfolio) => { this.portfolio = portfolio }
+
+    @action portfolioUpdate = () => {
+        const self = this;
+        // update porfolio valuation in term of BTC
+        // copy and slice observable in order to update at the end of the process the values
+        const updatedPorfolio = self.portfolio.slice();
+        updatedPorfolio.forEach(({ short }, key) => {
+            const market = self.getCoin(short);
+            const btc = self.getCoin('BTC');
+            updatedPorfolio[key].btcBalance = (self.portfolio[key].balance * market.price) / btc.price;
+            updatedPorfolio[key].usd = self.portfolio[key].balance * market.price;
+            updatedPorfolio[key].perc = market.perc;
+        });
+
+        this.portfolio = updatedPorfolio;
+    }
 
     portfolioRenderBalance = (short) => {
         const opts = { format: '%v %c', code: short, maxFraction: 8 };
@@ -59,9 +59,9 @@ export default class PortfolioStore {
     }
 
     portfolioRenderBTC = (short) => {
-        const opts = { format: '%v %c', code: 'BTC', maxFraction: 8 };
+        const self = this;
         const amount = this.getPortfolioCoin(short).btcBalance;
-        return formatCurrency(amount, opts)
+        return formatCurrency(amount, self.formatCrypto)
     }
 
     portfolioRenderFIAT = (short) => {
@@ -71,15 +71,32 @@ export default class PortfolioStore {
     }
 
     get24hEvolution = (short) => {
-        const coin = this.getCoin(short);
+        const coin = this.getPortfolioCoin(short);
         return coin.perc;
     }
 
-    portfolioTotal = () => {
+    portfolioTotal = (format = true) => {
         const self = this;
         /* call reduce() on the array, passing a callback
         that adds all the values together */
         const amount = self.portfolio.reduce((accumulator, coin) => accumulator + coin[self.defaultCurrency.type], 0);
-        return formatCurrency(amount, self.formatFIAT)
+        if (format) {
+            return formatCurrency(amount, self.formatFIAT)
+        }
+
+        return amount;
+    }
+
+    portfolioEvolution = () => {
+        const self = this;
+        const total = self.portfolio.reduce((accumulator, coin) => accumulator + ((coin[self.defaultCurrency.type] * coin.perc) / 100), 0);
+        return ((total / this.portfolioTotal(false)) * 100).toFixed(2);
+    }
+
+    portfolioTotalBtc = (short = this.defaultCrypto) => {
+        const self = this;
+        const total = this.portfolioTotal(false);
+        const coinValue = this.getCoin(short).price;
+        return formatCurrency(total / coinValue, self.formatCrypto)
     }
 }

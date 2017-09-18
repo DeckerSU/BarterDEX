@@ -18,7 +18,7 @@ export const electronEvents = ({ app, mainWindow, api, listener }) => {
     const close = () => {
         // On OS X it is common for applications and their menu bar
         // to stay active until the user quits explicitly with Cmd + Q
-        log.info('All windows closed.  Shutting down FFMpeg and Livepeer...')
+        log.info('All windows closed. shutting down iguana...')
     }
 
     /*
