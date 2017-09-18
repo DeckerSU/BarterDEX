@@ -32,15 +32,7 @@ npm start
 
 auto-updater will be available soon
 
-
 ## Known issues and workaround
-
-### Your camera is busy :collision: :movie_camera:
-On OSX you can release it with  
-```
-sudo killall VDCAssistant AppleCameraAssistant
-```
-
 
 ## Built With
 [React](https://facebook.github.io/react/) |
