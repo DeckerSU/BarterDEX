@@ -26,20 +26,32 @@ button svg {
 
 button svg { fill: $color-secondary }
 
-button:hover { transform: scale(1.05) }
+button:hover { transform: scale(1.01) }
 button:hover:active { transform: scale(.99) }
 button:hover svg { fill: $blue }
 
 button.withBorder {
-    border: 2px solid transparent;
+    position: relative;
     border-radius: 30px;
-    background-color: $color-primary;
+    background-color: transparent;
+    background: $background-jaguar;
+}
+
+button.withBorder:before {
+    position: absolute;
+    z-index: -1;
+    content:"";
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    top: -2px;
+    left: -2px;
+    border-radius: 30px;
+    background-image: linear-gradient(90deg, #9300FF 0%, #5272E2 49%, #05E6B5 98%);
+
 }
 
 button.withBorder:hover {
-    border-color: $color-primary;
-    background: transparent;
-    color: $color-primary
+    background: transparent
 }
 
 button.withBorder-light {

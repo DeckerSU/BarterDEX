@@ -18,16 +18,18 @@
 @import 'components/_forms';
 @import 'components/_progress';
 @import 'components/_toggler';
+@import 'components/_tooltip';
 @import 'components/_placeholder';
 @import 'components/_controls';
 @import 'components/_video';
 @import 'components/_modal';
+@import 'components/_tables';
 @import 'components/dashboard';
 
 
 body {
   transition: all .2s ease;
-  background-color: $background-primary;
+  background-color: $background-jaguar;
   background-repeat: no-repeat;
   height: 100vh;
 }

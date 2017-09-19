@@ -6,7 +6,10 @@ import DevTools from 'mobx-react-devtools';
 
 import { Home, Counter } from './containers';
 import { AppStore, WinStore } from '../stores';
+
+import 'react-table/react-table.css'
 import './styles/main.css';
+
 
 const isDev = process.env.NODE_ENV !== 'production';
 

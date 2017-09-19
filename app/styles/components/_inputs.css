@@ -8,12 +8,11 @@
 */
 
 input,
-[contenteditable=true] {
-    font-family: 'Lato';
-    font-size: inherit;
+[contenteditable=true],
+select {
+    font: inherit;
     outline: none;
     border: 0;
-    color: #FFF;
     /* Ensure focus on inputs doesn't allow app dragging */
     -webkit-app-region: no-drag;
 }

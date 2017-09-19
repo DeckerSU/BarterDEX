@@ -29,11 +29,11 @@ $font-size-default:    1em;
 $background-primary:   #F7FAFC;
 $background-secondary: #FFF;
 $background-light:     #111;
+$background-jaguar:    #04050A;
 
 /* Typography */
-$color-primary:        #9D9CF8;
-$color-secondary:      #10213E;
-$color-gray:           #606574;
+$color-primary:        #9104FE;
+$color-secondary:      #FFF;
 $color-dark:           $grey;
 $divider-color:        $grey-dark;
 $box-shadow-inputs:    0 1px 1px 0 rgba(0, 0, 0, .2),

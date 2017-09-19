@@ -2,7 +2,7 @@ import { observable, action } from 'mobx';
 import { ipcRenderer } from 'electron';
 
 
-const formatCurrency = require('format-currency')
+import formatCurrency from 'format-currency';
 
 
 import { colors } from '../constants'

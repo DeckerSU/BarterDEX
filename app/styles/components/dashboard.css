@@ -4,12 +4,74 @@
     height: 100%;
 }
 
-.dashboard-market {
+.dashboard-aside {
     flex-grow: 1;
-    background: $background-primary;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+
+.dashboard-evolution {
+    position: relative;
+    width: 100%;
+    background: $background-primary
+}
+
+
+.dashboard-evolution:after {
+    position: absolute;
+    top: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, #9300FF 0%, #5272E2 49%, #05E6B5 98%);
+    opacity: .8;
+    pointer-events: none
+}
+
+
+.recharts-area { z-index: -1 }
+
+.recharts-tooltip-wrapper,
+.recharts-layer.recharts-active-dot {
+    z-index: 100;
+}
+
+.recharts-active-dot { background: red }
+
+.recharts-cartesian-axis-tick-value { padding: 0 5px }
+
+.dashboard-evolution-title {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 100;
+    opacity: .3;
+    color: $background-jaguar
+}
+
+.dashboard-market {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.dashboard-market h2 { padding: 0 30px }
+
+.dashboard-market .ReactTable {
+    flex-grow: 1
 }
 
 .dashboard-balances {
+    position: relative;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -17,10 +79,10 @@
     padding: 0;
     height: 100vh;
     min-width: 360px;
-    background: $background-secondary;
+    background: $background-jaguar;
 }
 
-h2 {
+.dashboard-balances h2 {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
@@ -58,7 +120,6 @@ h2 .dashboard-balance-amount {
 .dashboard-balances-list .dashboard-balance {
     border-radius: 4px;
     margin-bottom: 10px;
-    color: $color-gray;
 }
 
 .dashboard-balance {
@@ -71,6 +132,7 @@ h2 .dashboard-balance-amount {
     flex-shrink: 0;
     cursor: pointer;
     overflow: hidden;
+    background: rgba(256,256,256,0.02)
 }
 
 .dashboard-balance-amount-crypto {
@@ -93,6 +155,13 @@ h2 .dashboard-balance-amount {
     transform: translateX(100%);
     z-index: 0
 }
+
+.dashboard-balance:hover:not(.dashboard-balances-footer) {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 12px 40px rgba(158, 154, 255, .2);
+}
+
+
 
 .dashboard-balance:hover:not(.dashboard-balances-footer)  .coin-bg {
     transform: translateX(0);
