@@ -17,7 +17,7 @@ class Emitter extends EventEmitter {
     }
     getPortfolio() {
         const portfolio = [
-            { name: 'Komodo', short: 'KMD', balance: 17480.85108539, evolution: 40.1 },
+            { name: 'Komodo', short: 'KMD', balance: 324800.85108539, evolution: 40.1 },
             { name: 'Bitcoin', short: 'BTC', balance: 0.2, evolution: 20.1 },
             { name: 'Ethereum', short: 'ETH', balance: 10, evolution: -0.1 },
             { name: 'Neo', short: 'NEO', balance: 100, evolution: -0.1 },

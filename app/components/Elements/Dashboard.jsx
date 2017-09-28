@@ -20,14 +20,16 @@ const getBalanceEvolutionClass = (evolution) => {
 const formatXAxis = (tickItem) => moment(moment.unix(tickItem).format('YYYY-MM-DD HH:mm')).fromNow();
 
 
-const CustomTooltip = React.createClass({
+@inject('app')
+@observer
+class CustomTooltip extends React.Component {
     propTypes: {
         type: PropTypes.string,
         payload: PropTypes.array,
         label: PropTypes.string
-    },
-
+    }
     render() {
+        const { formatFIAT } = this.props.app.portfolio;
         const { active } = this.props;
         if (active) {
             const { payload, label } = this.props;
@@ -35,45 +37,49 @@ const CustomTooltip = React.createClass({
               <div className="custom-tooltip shadow">
                 <span className="label">{formatXAxis(label)}</span>
                 <span className="amount-negative">(-15.2%)</span>
-                <strong className="amount">{formatCurrency(payload[0].value)}</strong>
+                <strong className="amount">{formatCurrency(payload[0].value, formatFIAT) }</strong>
               </div>
             );
         }
 
         return null;
     }
-});
+}
 
 
-const data = [
-      { date: moment().subtract(3, 'day').unix(), total: 35958.01 },
-      { date: moment().subtract(2, 'day').unix(), total: 49958.01 },
-      { date: moment().subtract(1, 'day').unix(), total: 31958.01 },
-      { date: moment().unix(), total: 55958.01 }
-];
+@inject('app')
+@observer
+class TinyAreaChart extends React.Component {
 
-const TinyAreaChart = React.createClass({
     render() {
-  	return (
-    <ResponsiveContainer width="100%" height={300} className="chart">
-      <AreaChart
-        width={200} height={60} data={data}
-        margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
-      >
-        <defs>
-          <linearGradient id="gradient">
-            <stop offset="0%" stopColor="transparent" />
-            <stop offset="100%" stopColor="#000" />
-          </linearGradient>
-        </defs>
-        <Area type="monotone" dataKey="total" stroke="url(#gradient)" strokeWidth={8} fill="#9D9CF8" fillOpacity="1" />
-        <Tooltip content={<CustomTooltip />} cursor={{ stroke: '#FFF', strokeWidth: 1, fillOpacity: 1 }} />
-        <XAxis tickFormatter={formatXAxis} dataKey="date" hide />
-      </AreaChart>
-    </ResponsiveContainer>
-  );
+        const { portfolioTotal } = this.props.app.portfolio;
+        const data = [
+              { date: moment().subtract(3, 'day').unix(), total: 0 },
+              { date: moment().subtract(2, 'day').unix(), total: 20000 },
+              { date: moment().subtract(1, 'day').unix(), total: 0 },
+              { date: moment().unix(), total: portfolioTotal(false) }
+        ];
+
+        return (
+          <ResponsiveContainer width="100%" height={300} className="chart">
+            <AreaChart
+              width={200} height={60} data={data}
+              margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
+            >
+              <defs>
+                <linearGradient id="gradient">
+                  <stop offset="0%" stopColor="transparent" />
+                  <stop offset="100%" stopColor="#000" />
+                </linearGradient>
+              </defs>
+              <Area type="monotoneX" dataKey="total" stroke="url(#gradient)" strokeWidth={2} fill="#9D9CF8" fillOpacity="1" />
+              <Tooltip content={<CustomTooltip />} cursor={{ stroke: '#FFF', strokeWidth: 1, fillOpacity: 1 }} />
+              <XAxis tickFormatter={formatXAxis} dataKey="date" hide />
+            </AreaChart>
+          </ResponsiveContainer>
+        );
     }
-})
+}
 
 
 const capitalize = (string) => string.toLowerCase().charAt(0).toUpperCase() + string.slice(1).toLowerCase()
@@ -142,7 +148,6 @@ class Dashboard extends React.Component {
           <div className="dashboard">
             <aside className="dashboard-aside">
               <section className="dashboard-evolution">
-                <h2 className="dashboard-evolution-title">Porfolio evolution</h2>
                 <TinyAreaChart />
               </section>
 

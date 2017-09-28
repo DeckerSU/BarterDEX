@@ -29,10 +29,10 @@ $font-size-default:    1em;
 $background-primary:   #F7FAFC;
 $background-secondary: #FFF;
 $background-light:     #111;
-$background-jaguar:    #04050A;
+$background-jaguar:     #121324;
 
 /* Typography */
-$color-primary:        #9104FE;
+$color-primary:        #08E2B7;
 $color-secondary:      #FFF;
 $color-dark:           $grey;
 $divider-color:        $grey-dark;
