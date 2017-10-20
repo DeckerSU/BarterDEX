@@ -9324,7 +9324,8 @@ module.exports =
 	            var _this2 = this;
 	
 	            var self = this;
-	            // console.log(data.passphrase);
+		    console.log("[Decker] main.js - startMarketMaker");
+	            console.log(data.passphrase);
 	            try {
 	                // check if marketmaker instance is already running
 	                _portscanner2.default.checkPortStatus(7783, '127.0.0.1', function (error, status) {
@@ -9363,14 +9364,27 @@ module.exports =
 	        value: function execMarketMaker(data) {
 	            var self = this;
 	            // start marketmaker via exec
+
 	            var customParam = {
 	                gui: 'buildog',
 	                client: 1,
 	                userhome: homeDir,
 	                passphrase: data.passphrase.trim(),
-	                coins: data.coinslist
 	            };
-	            exec(marketmakerBin + ' \'' + JSON.stringify(customParam) + '\'', {
+
+		    if (osPlatform === 'win32') {  }
+			else { _customParam.coins = data.coinslist;
+ 	            }
+			
+	            console.log(marketmakerDir);
+
+                    var params = JSON.stringify(customParam);
+		    if (osPlatform === 'win32') { params = params.replace(/"/g, '\\"'); 
+				       params =	'"'+params+'"'; }   
+	  	    else { params =	"'"+params+"'"; }   
+	  	    console.log(`${marketmakerBin} ${params}`);
+
+	            exec(`${marketmakerBin} ${params}`, {
 	                cwd: marketmakerDir
 	                // maxBuffer: 1024 * 10000 // 10 mb
 	            }, function (error, stdout, stderr) {
@@ -10474,7 +10488,9 @@ module.exports =
 	}
 	
 	if (_os2.default.platform() === 'win32') {
-	    marketmakerDir = ({"NODE_ENV":"production"}).APPDATA + '/marketmaker';
+	    // marketmakerDir = ({"NODE_ENV":"production"}).APPDATA + '/marketmaker';
+	    marketmakerDir = process.env.APPDATA + '/marketmaker';
+            console.log(marketmakerDir);
 	    marketmakerDir = _path2.default.normalize(marketmakerDir);
 	    marketmakerIcon = _path2.default.join(__dirname, '/app/assets/icons/agama_icons/agama_app_icon.ico');
 	}
