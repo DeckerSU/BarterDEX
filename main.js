@@ -9009,7 +9009,7 @@ module.exports =
 	                        width: 400,
 	                        height: 720,
 	                        resizable: false,
-	                        frame: false,
+	                        frame: true,
 	                        transparent: true,
 	                        show: false,
 	                        hasShadow: false
