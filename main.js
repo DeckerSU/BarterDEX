@@ -9368,12 +9368,15 @@ module.exports =
 	            var customParam = {
 	                gui: 'buildog',
 	                client: 1,
-	                userhome: homeDir,
+	                userhome: '',
 	                passphrase: data.passphrase.trim(),
 	            };
 
+	            if (osPlatform === 'win32') { customParam.userhome = `${process.env.APPDATA}`; }
+	 	    else { customParam.userhome = homeDir; }
+
 		    if (osPlatform === 'win32') {  }
-			else { _customParam.coins = data.coinslist;
+			else { customParam.coins = data.coinslist;
  	            }
 			
 	            console.log(marketmakerDir);
