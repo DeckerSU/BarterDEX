@@ -1,0 +1,95 @@
+
+ul[class*=list] {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    background: #FFF;
+    box-shadow: $box-shadow-inputs
+}
+
+ul[class*=list] > li {
+    display: flex;
+    width: 100%;
+    flex-shrink: 0;
+    background-color: #FFF;
+    box-shadow: 0 6px 20px rgba(0,0,0,.14);
+    border-bottom: 1px solid $grey;
+    transition: all .2s ease;
+    cursor: pointer;
+    will-change: transform;
+    overflow: hidden;
+
+}
+
+ul[class*=list] > li > a {
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    text-decoration: none;
+    width: 100%;
+    padding: 0px 20px 0px 20px;
+}
+
+ul[class*=list] [class*="_action"] {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    background: transparent
+}
+
+ul[class*=list] [class*="_action"] svg {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    transition: transform .6s ease;
+}
+
+ul[class*=list] [class*="_action_loader"] {
+    transform: translateX(10px);
+    opacity: 0;
+    transition: all .2s ease;
+    width: 0px
+
+}
+
+ul[class*=list] [class*="_action_loader"] svg {
+    width: 40px;
+    height: 40px;
+}
+
+ul[class*=list] > li:hover,
+ul[class*=list] > li.enabling {
+    z-index: 1;
+    background: $blue;
+}
+
+ul[class*=list] > li.enabling {
+    pointer-events: none
+}
+
+ul[class*=list] > li:hover .coin-colorized,
+ul[class*=list] > li:hover svg,
+ul[class*=list] > li:hover svg path,
+ul[class*=list] > li.enabling svg,
+ul[class*=list] > li.enabling svg path,
+ul[class*=list] > li.enabling .coin-colorized {
+    color: #FFF !important;
+    fill: #FFF !important;
+}
+
+ul[class*=list] > li:hover code {
+    background: rgba(0,0,0,0.1)
+}
+
+ul[class*=list] > li.enabling [class*="_action_loader"] {
+    display: flex;
+    transform: translateY(0px);
+    opacity: 1;
+    width: auto;
+}

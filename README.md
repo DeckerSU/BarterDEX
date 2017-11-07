@@ -2,18 +2,49 @@
 
 Let’s decentralize Cryptocurrency Exchanges and secure it with BarterDEX
 
-## Electron (Node.js)
-
-#### Quick start
-
 Before starting make sure you have [Agama wallet](https://github.com/SuperNETorg/Agama) running on your machine, with at least 2 coins activated in native mode.
 
 
+## Downloads
+
+#### 1. Install dependencies 
+
+This project require nanomsg,
+
+##### via Homebrew:
+
+
+```shell
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
 ```
+
+```shell
+brew install nanomsg
+```
+
+##### via cmake:
+
+```shell
+sudo apt-get update
+sudo apt-get install build-essential git cmake libcurl4-openssl-dev
+
+git clone https://github.com/nanomsg/nanomsg
+cd nanomsg; mkdir build; cd build; cmake ..
+cmake --build .
+ctest -C Debug .
+sudo cmake --build . --target install
+sudo ldconfig
+```
+
+#### 2. Download and install the packages [Release page](https://github.com/buildog/BarterDEX/releases)
+
+
+## Electron app (Node.js)
+
+```shell
 git clone git@github.com:buildog/BarterDEX.git
 cd BarterDEX
 npm install
-npm start
 ```
 
 #### Development Commands list
@@ -25,20 +56,6 @@ npm start
 | `npm run dist` | generate a new build to `/dist` :shipit: 🎉 |
 | `npm run release` | build a new package release for all plateform |
 
-
-## Apps
-
-[Release page](https://github.com/buildog/BarterDEX/releases) 
-
-## Package release
-
-[electron-packager](https://github.com/electron-userland/electron-packager) is used generate the packages. You can create a release for all plateform via `npm run release` or platform specific via `npm run [package-mac | package-linux | package-win]`
-
-## Updates
-
-auto-updater will be available soon
-
-## Known issues and workaround
 
 ## Built With
 [React](https://facebook.github.io/react/) |

@@ -2,14 +2,14 @@
     Configuration store for the dependencies and frame config
 */
 import os from 'os';
-import fixPath from 'fix-path';
+import fs from 'fs';
 import path from 'path';
+import { PassPhraseGenerator } from './passphrasegenerator'
 
 const osPlatform = os.platform();
 
 
-const homeDir = require('os').homedir();
-const appRootDir = require('app-root-dir').get();
+let homeDir = require('os').homedir();
 
 const env = process.env.NODE_ENV;
 const assetChainPorts = {
@@ -72,37 +72,46 @@ let marketmakerIcon;
 /* Handle binaries paths */
 const marketmaker = require('marketmaker').path;
 
+
 const paths = { marketmaker };
 const transformBinaryPath = (name) => paths[name].replace('bin', `node_modules/${name}/bin`).replace('app.asar', 'app.asar.unpacked');
 
-
-if (env === 'development') {
-    marketmakerBin = paths.marketmaker;
-} else {
-    marketmakerBin = transformBinaryPath('marketmaker');
-}
-
+marketmakerBin = paths.marketmaker;
 
 if (os.platform() === 'darwin') {
     // fixPath();
     marketmakerDir = `${homeDir}/Library/Application Support/marketmaker`;
+
+    if (env !== 'development') {
+        marketmakerBin = transformBinaryPath('marketmaker');
+    }
 }
 
 if (os.platform() === 'linux') {
     marketmakerDir = `${homeDir}/.marketmaker`;
+    if (env !== 'development') {
+        marketmakerBin = marketmakerBin.replace('bin/linux', `node_modules/marketmaker/bin/linux`).replace('app.asar', 'app.asar.unpacked');
+    }
 }
 
 if (os.platform() === 'win32') {
-    marketmakerDir = `${process.env.APPDATA}/marketmaker`;
-    marketmakerDir = path.normalize(marketmakerDir);
+    homeDir += '\\AppData\\Roaming';
+    marketmakerDir = `${homeDir}\\marketmaker`;
+    // marketmakerDir = path.normalize(marketmakerDir);
     marketmakerIcon = path.join(__dirname, '/app/assets/icons/agama_icons/agama_app_icon.ico');
+
+    homeDir = homeDir.replace(/\\\\/g, '\\');
+    marketmakerDir = marketmakerDir.replace(/\\\\/g, '\\')
+
+    if (env !== 'development') {
+        marketmakerBin = marketmakerBin.replace('bin', 'node_modules\\marketmaker\\bin').replace('app.asar', 'app.asar.unpacked');
+    }
 }
 
-console.log(marketmakerDir);
-
 // DEFAULT COINS LIST FOR MARKETMAKER
-const defaultCoinsListFile = path.join(__dirname, './coinslist.json');
+const defaultCoinsListFile = path.join(__dirname, './coins.json');
 
 export default {
-    main: { homeDir, appRootDir, env, assetChainPorts, osPlatform, defaultCoinsListFile, marketmakerBin, marketmakerDir, marketmakerIcon }
+    main: { homeDir, env, assetChainPorts, osPlatform, defaultCoinsListFile, marketmakerBin, marketmakerDir, marketmakerIcon },
+    PassPhraseGenerator
 }

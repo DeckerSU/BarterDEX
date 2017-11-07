@@ -1,24 +1,47 @@
-
+.login {
+    height: 100vh
+}
 
 .login,
 .login .form {
     display: flex;
-    height: 100%;
     overflow: auto;
     align-items: center;
     justify-content: center;
     background: $background-jaguar;
 }
 
+.login-localStorage .form {
+    display: none
+}
+
+.login-newpassphrase {
+    margin-top: 20px;
+}
+
+.login-passphrase-notice {
+    background: $danger;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: left;
+    height: 90px;
+    padding: 0 20px;
+
+}
+
+.login-passphrase-notice span { font-weight: 400 }
+
 .login .form {
     flex-direction: column;
-    padding: 0px 60px 100px;
+    padding: 0px 10px;
 }
 
 .login-button {
     width: 100%;
-    padding: 20px;
-    font-size: 1em
+    height: 90px;
+    padding: 0 20px;
+    font-size: 1em;
 }
 
 .login textarea {
@@ -26,18 +49,10 @@
     padding: 10px 10px;
     margin-bottom: 20px;
     min-width: inherit;
-    width: 320px;
+    width: 360px;
     height: 180px;
     resize: none;
-    box-shadow: $box-shadow-inputs;
-    border: 1px solid transparent;
 }
-
-.login textarea:focus {
-    border: 1px solid #2188ff;
-    box-shadow: inset 0 1px 2px rgba(27,31,35,0.075), 0 0 0 0.2em rgba(3,102,214,0.3);
-}
-
 
 .Placeholder {
     display: flex;
@@ -51,6 +66,7 @@
 
 .Placeholder-logo {
     @extend .flexCenter;
+    overflow: hidden;
 }
 
 .Placeholder-logo,
@@ -62,7 +78,7 @@
 
 .Placeholder-logo svg {
     transform: scale(3);
-    transform-origin: 55% 76%;
+    transform-origin: 55% 85%;
     pointer-events: none
 
 }
@@ -81,5 +97,6 @@
     font-weight: 200;
     font-size: 3.2em;
     color: $color-dark;
+    margin: 0 0 20px 0;
 
 }

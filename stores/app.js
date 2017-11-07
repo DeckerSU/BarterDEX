@@ -4,6 +4,9 @@ import LoaderStore from './LoaderStore';
 import NotifierStore from './NotifierStore';
 import PortfolioStore from './PortfolioStore'
 import OrderbookStore from './OrderbookStore'
+import MarketStore from './MarketStore'
+import TradeStore from './TradeStore'
+import GrowlerStore from './GrowlerStore'
 
 const shepherdIPC = (data) => { ipcRenderer.send('shepherd-command', data) }
 
@@ -18,18 +21,23 @@ export default class AppStore {
         this.notifier = new NotifierStore();
         this.loader = new LoaderStore();
         this.orderbook = new OrderbookStore();
+        this.market = new MarketStore();
+        this.trade = new TradeStore();
+        this.growler = new GrowlerStore();
 
         this.portfolio = new PortfolioStore({
             defaultFiat: { type: 'usd', symbol: '$' },
-            defaultCrypto: 'KMD',
-            orderbookStore: this.orderbook
+            defaultCrypto: 'BTC',
+            orderbookStore: this.orderbook,
+            marketStore: this.market
         });
 
         /* set userpass */
-        ipcRenderer.on('updateUserInfo', (e, { userpass, coins, mypubkey }) => {
-            self.coins = coins;
+        ipcRenderer.on('updateUserInfo', (e, { userpass, mypubkey }) => {
             self.userpass = userpass;
             self.mypubkey = mypubkey;
+            // start autorefresh of portfolio
+            self.portfolio.autorefresh = setInterval(() => self.portfolio.refresh(), 6000)
         });
 
         ipcRenderer.on('resetUserInfo', () => {
@@ -38,17 +46,34 @@ export default class AppStore {
             self.mypubkey = '';
         })
 
-        // shepherdIPC({ command: 'logout' });
+        ipcRenderer.on('willClose', () => {
+            this.logout();
+            ipcRenderer.send('readyToQuit');
+        })
     }
 
   @action login = (passphrase) => {
       // send login passphrase
+
+      if (typeof (Storage) !== 'undefined') {
+          // Code for localStorage/sessionStorage.
+          localStorage.setItem('passphrase', passphrase);
+      }
+
       shepherdIPC({ command: 'login', passphrase });
   }
 
   @action logout = () => {
+      const self = this;
+      if (typeof (Storage) !== 'undefined') {
+          // Code for localStorage/sessionStorage.
+          localStorage.removeItem('passphrase');
+      }
+
       // send login passphrase
-      this.portfolio.leave();
+      clearInterval(self.portfolio.autorefresh);
+      self.orderbook.killListener();
+      self.portfolio.leave();
       shepherdIPC({ command: 'logout' });
   }
 

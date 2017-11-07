@@ -1,0 +1,45 @@
+.growler {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    z-index: 2000;
+    text-align: center;
+    pointer-events: none;
+    transition: all .2s ease;
+
+}
+
+.growler .growler-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: $green;
+    color: #FFF;
+    padding: 10px;
+    box-shadow: $box-shadow-inputs;
+    border-radius: 4px;
+}
+
+
+.growler .growler-success i,
+.growler .growler-success i svg {
+    width: 40px;
+    height: 40px;
+}
+
+.growler .growler-success i svg {
+    fill: #FFF;
+}
+
+/* state */
+
+.growler:empty {
+    opacity: 0;
+    transform: translateX(-20px);
+}

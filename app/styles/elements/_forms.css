@@ -16,6 +16,28 @@
     margin-bottom: 20px;
 }
 
+.label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-weight: 600;
+    padding: 10px 4px 20px 10px;
+    justify-content: flex-end;
+}
+
+.label .label-title {
+    margin-right: auto;
+    font-weight: 400;
+    font-size: 1.1em;
+    opacity: .5;
+    color: $color-dark
+}
+
+.label .link {
+    margin-left: 10px;
+}
+
+
 .legend {
     width: 100%;
     display: inline-flex;
@@ -32,29 +54,36 @@
     border-bottom: 2px solid $blue;
 }
 
+hr {
+    width: 100%;
+    border: none;
+    background: transparent
+}
+
+.react-toggle:hover {
+    opacity: 1
+}
+
 .react-toggle--checked .react-toggle-track {
-    background: $purple
+    background: $color-dark
 }
 
 .react-toggle--checked .react-toggle-thumb {
-    border-color: $purple
+    border-color: $color-dark
 }
 
 .react-toggle-track {
-    background-color: #E0DCE9
+    background-color: $color-dark
 }
 
 
-.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #E0DCE9
-}
 
 .react-toggle--checked .react-toggle-track {
-  background-color: $purple;
+  background-color: $color-dark
 }
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: $purple;
+  background-color: $color-dark
 }
 
 .react-toggle--focus .react-toggle-thumb {

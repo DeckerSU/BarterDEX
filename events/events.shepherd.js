@@ -8,11 +8,16 @@ const MMStates = {
     close: 'closed'
 };
 
+let mmsState = MMStates.initial;
 let checkMMInterval;
+let passphrase;
+
+const stopMMStatus = () => {
+    mmsState = MMStates.initial;
+    checkMMInterval && clearInterval(checkMMInterval);
+}
 
 export const shepherdEvents = ({ api, emitter, listener }) => {
-    let mmsState = '';
-
     listener.on('shepherd-command', (event, arg) => {
         switch (arg.command) {
         case 'ping':
@@ -20,10 +25,9 @@ export const shepherdEvents = ({ api, emitter, listener }) => {
         case 'login':
             emitter.send('loading', { type: 'add', key: 1 });
             api.startMarketMaker({ passphrase: arg.passphrase });
-
             break;
         case 'logout':
-            api.killMarketmaker(true);
+            api.logout();
             break;
         default:
             break;
@@ -32,8 +36,8 @@ export const shepherdEvents = ({ api, emitter, listener }) => {
 
     api.on('logoutCallback', (data) => {
         if (!data.error) {
-            mmsState = MMStates.initial;
-            clearInterval(checkMMInterval);
+            passphrase = '';
+            stopMMStatus();
             emitter.send('resetUserInfo', data);
         }
     });
@@ -41,6 +45,8 @@ export const shepherdEvents = ({ api, emitter, listener }) => {
     api.on('loginCallback', (data) => {
         if (!data.error) {
             // start to check if MMS is running
+            passphrase = data.passphrase;
+            stopMMStatus();
             checkMMInterval = setInterval(() => api.checkMMStatus(), 1000);
         } else {
             // trigger login error
@@ -57,15 +63,14 @@ export const shepherdEvents = ({ api, emitter, listener }) => {
 
         if (status === MMStates.open && mmsState !== MMStates.open) {
             // first market open > store userpass
-            api.getUserpass();
+            api.getUserpass(passphrase);
             mmsState = MMStates.open;
         }
     })
 
     api.on('updateUserInfo', (data) => {
-        emitter.send('loading', { type: 'delete', key: 1 });
-
         emitter.send('updateUserInfo', data);
+        emitter.send('loading', { type: 'delete', key: 1 });
         emitter.send('loading', { type: 'delete', key: 2 });
     })
 }

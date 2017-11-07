@@ -1,12 +1,28 @@
 const CONSTANTS = {
     loading: {
         0: 'App Initialization',
-        1: 'Login in',
+        1: 'Logging in',
         2: 'Marketmaker Initialization',
         3: 'Porfolio fetch',
         4: 'Coin activation',
-        5: 'Processing trade order'
+        5: 'Processing trade order',
+        6: 'Processing withdraw',
+        7: 'Generating UTXOs'
 
+    },
+    growler: {
+        0: {
+            message: 'Trade bot launched',
+            type: 1
+        },
+        1: {
+            message: 'Bot stopped',
+            type: 1
+        },
+        2: {
+            message: 'Bot resumed',
+            type: 1
+        }
     },
     error: {
         1: {
@@ -46,6 +62,18 @@ const CONSTANTS = {
         8: {
             message: 'No active chain',
             critical: true
+        },
+        9: {
+            message: 'MarketMaker crash',
+            critical: true
+        },
+        10: {
+            message: 'Withdraw failed',
+            loadingKeys: [6]
+        },
+        11: {
+            message: 'Autosplit balance into UTXOs failed',
+            loadingKeys: [5, 7]
         }
     },
     colors: {
@@ -193,7 +221,73 @@ const CONSTANTS = {
         ZEC: '#e5a93d',
         ZEIT: '#ACACAC',
         REVS: '#FF6600'
-    }
+    },
+    electrumConfig: [
+        { coin: 'ARG', ipaddr: '173.212.225.176', port: '50081' },
+        { coin: 'ARG', ipaddr: '136.243.45.140', port: '50081' },
+        { coin: 'BTC', ipaddr: '173.212.225.176', port: '50001' },
+        { coin: 'BTC', ipaddr: '136.243.45.140', port: '50001' },
+        { coin: 'CHIPS', ipaddr: '173.212.225.176', port: '50076' },
+        { coin: 'CHIPS', ipaddr: '136.243.45.140', port: '50076' },
+        { coin: 'CRW', ipaddr: '173.212.225.176', port: '50041' },
+        { coin: 'CRW', ipaddr: '136.243.45.140', port: '50041' },
+        { coin: 'DASH', ipaddr: '173.212.225.176', port: '50098' },
+        { coin: 'DASH', ipaddr: '136.243.45.140', port: '50098' },
+        { coin: 'DGB', ipaddr: '136.243.45.140', port: '50022' },
+        { coin: 'DGB', ipaddr: '173.212.225.176', port: '50022' },
+        { coin: 'DOGE', ipaddr: '173.212.225.176', port: '50015' },
+        { coin: 'DOGE', ipaddr: '136.243.45.140', port: '50015' },
+        { coin: 'EMC2', ipaddr: '173.212.225.176', port: '50079' },
+        { coin: 'EMC2', ipaddr: '136.243.45.140', port: '50079' },
+        { coin: 'FAIR', ipaddr: '173.212.225.176', port: '50005' },
+        { coin: 'FAIR', ipaddr: '136.243.45.140', port: '50005' },
+        { coin: 'HUSH', ipaddr: '173.212.225.176', port: '50013' },
+        { coin: 'HUSH', ipaddr: '136.243.45.140', port: '50013' },
+        { coin: 'JUMBLR', ipaddr: '173.212.225.176', port: '50051' },
+        { coin: 'JUMBLR', ipaddr: '136.243.45.140', port: '50051' },
+        { coin: 'KMD', ipaddr: '136.243.45.140', port: '50011' },
+        { coin: 'KMD', ipaddr: '173.212.225.176', port: '50011' },
+        { coin: 'LTC', ipaddr: '173.212.225.176', port: '50012' },
+        { coin: 'LTC', ipaddr: '136.243.45.140', port: '50012' },
+        { coin: 'MNZ', ipaddr: '173.212.225.176', port: '50053' },
+        { coin: 'MNZ', ipaddr: '136.243.45.140', port: '50053' },
+        { coin: 'MONA', ipaddr: '173.212.225.176', port: '50002' },
+        { coin: 'MONA', ipaddr: '136.243.45.140', port: '50002' },
+        { coin: 'NMC', ipaddr: '173.212.225.176', port: '50036' },
+        { coin: 'NMC', ipaddr: '136.243.45.140', port: '50036' },
+        { coin: 'REVS', ipaddr: '173.212.225.176', port: '50050' },
+        { coin: 'REVS', ipaddr: '136.243.45.140', port: '50050' },
+        { coin: 'VIA', ipaddr: '173.212.225.176', port: '50033' },
+        { coin: 'VIA', ipaddr: '136.243.45.140', port: '50033' },
+        { coin: 'VTC', ipaddr: '173.212.225.176', port: '50088' },
+        { coin: 'VTC', ipaddr: '136.243.45.140', port: '50088' },
+        { coin: 'WLC', ipaddr: '173.212.225.176', port: '50052' },
+        { coin: 'WLC', ipaddr: '136.243.45.140', port: '50052' },
+        { coin: 'ZEC', ipaddr: '173.212.225.176', port: '50032' },
+        { coin: 'ZEC', ipaddr: '136.243.45.140', port: '50032' }
+    ],
+    availableElectrum: [
+        'MNZ',
+        'BTC',
+        'KMD',
+        'REVS',
+        'MONA',
+        'CHIPS',
+        'DOGE',
+        'JUMBLR',
+        'LTC',
+        'ZEC',
+        'VIA',
+        'VTC',
+        'WLC',
+        'NMC',
+        'DASH',
+        'FAIR',
+        'EMC2',
+        'CRW',
+        'ARG'
+    ]
+
 };
 
 export default CONSTANTS;

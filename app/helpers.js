@@ -311,7 +311,12 @@ export const coinName = (coin) => {
     case 'ZAR':
         name = 'South African Rand';
         break;
-
+    case 'MNZ':
+        name = 'Monaize';
+        break;
+    default:
+        name = coin;
+        break;
     }
     return name;
 }

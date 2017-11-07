@@ -4,9 +4,12 @@ import React from 'react'
 
 
 import formatCurrency from 'format-currency';
-import { colors } from '../constants'
+import { colors, electrumConfig } from '../constants'
 import { coinName } from '../app/helpers'
 import * as Icon from 'react-cryptocoins';
+import MNZ from '../app/static/coins/mnz.svg';
+import CONSTANTS from '../constants';
+
 
 const capitalize = (string) => string.toLowerCase().charAt(0).toUpperCase() + string.slice(1).toLowerCase()
 
@@ -22,6 +25,9 @@ const addIcons = (coins) => coins.map((item) => {
     if (Icon[coin]) {
         const TagName = Icon[coin];
         item.icon = (<TagName />);
+        item.hasSVGIcon = true;
+    } else if (coin === 'Mnz') {
+        item.icon = (<i className={`coin-icon-svg ${item.coin}`} dangerouslySetInnerHTML={{ __html: MNZ }} />)
         item.hasSVGIcon = true;
     } else {
         item.icon = (<i className={`coin-icon-placeholder ${item.coin}`}>{ item.coin[0] }</i>)
@@ -39,6 +45,12 @@ export default class PortfolioStore {
      @observable installedCoins = [];
      @observable tradeBase = false;
      @observable tradeRel = false;
+     @observable withdrawConfirm = false;
+     @observable tx = false;
+     @observable total = {
+         fiat: '',
+         rel: ''
+     };
 
      @observable fiatRates = {
          eur: 3000,
@@ -49,139 +61,162 @@ export default class PortfolioStore {
 
     colors = colors;
 
-    constructor({ defaultFiat, defaultCrypto, orderbookStore }) {
+    constructor({ defaultFiat, defaultCrypto, orderbookStore, marketStore }) {
         this.orderbook = orderbookStore;
+        this.market = marketStore;
         this.defaultCurrency = defaultFiat;
         this.defaultCrypto = defaultCrypto;
         this.formatFIAT = { format: '%s%v', symbol: this.defaultCurrency.symbol }
         this.formatCrypto = { format: '%v %c', code: defaultCrypto, maxFraction: 8 };
-        this.autorefresh = false;
+
         this.initializedtradeRel = false;
 
         const self = this;
 
-        ipcRenderer.on('setPortfolio', (e, { portfolio }) => { this.setPortfolio(portfolio) });
         ipcRenderer.on('coinsList', (e, coinsList) => { self.prepareCoinsList(coinsList) });
-
-        // trade methods after coin is activated
         ipcRenderer.on('updateTrade', (e, { coin, type }) => { self.updateTrade(coin, type) });
-        ipcRenderer.on('trade', (e, result) => { self.tradeCb(result) });
+        ipcRenderer.on('confirmWithdraw', (e, result) => { self.withdrawConfirm = result });
+        ipcRenderer.on('sendrawtransaction', (e, result) => {
+            self.withdrawConfirm = false;
+            self.tx = result;
+        });
     }
 
-    getPortfolioCoin = (short) => this.portfolio.filter((asset) => asset.coin === short)[0];
+    getMarket = (short) => this.market.getMarket().filter((asset) => asset.short === short)[0];
+
+    @action getCoin = (short) => this.installedCoins.filter((asset) => asset.coin === short)[0];
+
+    updateTrade = (coin, type) => {
+        this[`trade${type}`] = this.getCoin(coin);
+    }
 
     /* @params { method, base, rel, price, relvolume }
     */
 
-    @action getCoin = (short) => this.coinsList.filter((asset) => asset.coin === short)[0];
-
-    @action trade = (params) => {
-        ipcRenderer.send('trade', params)
+    @action resetTX = () => {
+        this.tx = false;
     }
 
+    @action withdraw = (params) => {
+        ipcRenderer.send('withdraw', params)
+    }
 
-    @action tradeCb = (result) => {
-        console.log(result);
+    @action confirmWithdraw = () => {
+        const self = this;
+        ipcRenderer.send('confirmWithdraw', { coin: self.tradeBase.coin, signedtx: self.withdrawConfirm.hex, confirmation: true })
+    }
+
+    @action cancelWithdraw = () => {
+        this.withdrawConfirm = false
     }
 
     @action prepareCoinsList = (coins) => {
+        const self = this;
         const withIcons = addIcons(coins);
         const byIcon = withIcons.slice(0);
         byIcon.sort((a, b) => a.hasSVGIcon ? 0 : 1);
         this.coinsList = byIcon;
-        this.installedCoins = addIcons(this.coinsList.filter((coin) => coin.height > 0).sort((a, b) => a.balance > 0 ? 0 : 1));
-    }
 
-    @action setPortfolio = (portfolio) => {
-        const self = this;
+        const relMarket = self.getMarket(self.defaultCrypto);
 
-        if (!self.autorefresh) {
-            self.autorefresh = setInterval(() => self.refresh(), 6000)
+        // prepend rel
+        if (relMarket) {
+            this.coinsList.map((coin) => {
+                const market = self.getMarket(coin.coin);
+                if (market && coin.coin !== self.defaultCrypto && market.price) {
+                    coin.rel = (market.price / relMarket.price) * coin.balance;
+                } else if (coin.KMDvalue) {
+                    const KMDmarket = self.getMarket('KMD');
+                    if (KMDmarket && coin.coin !== self.defaultCrypto) {
+                        coin.rel = (KMDmarket.price / relMarket.price) * coin.KMDvalue;
+                    }
+                } else {
+                    coin.rel = 0;
+                }
+
+                return coin;
+            })
         }
 
-        this.portfolio = addIcons(portfolio)
-    }
 
+        this.installedCoins = addIcons(this.coinsList.filter((coin) => (coin.installed && coin.height > 0) || coin.electrum).sort((a, b) => b.rel - a.rel));
 
-    @action updateTrade = (coin, type) => {
-        this.orderbook.killListener();
-        this[`trade${type}`] = this.getPortfolioCoin(coin);
-
-        if (this.tradeBase && this.tradeRel) {
-            this.orderbook.listenOrderbook({ base: this.tradeBase.coin, rel: this.tradeRel.coin });
+        if (self.tradeRel) {
+            self.tradeRel.balance = self.getCoin(self.tradeRel.coin).balance
         }
+
+        if (self.tradeBase) {
+            self.tradeBase.balance = self.getCoin(self.tradeBase.coin).balance
+        }
+
+        self.portfolioTotal();
     }
 
-    // trade methods check if coin is activated
+    @action enableElectrum = (coin) => {
+        const electrumConf = electrumConfig.filter((svr) => svr.coin === coin.coin);
+        electrumConf.map((conf) => ipcRenderer.send('enableCoin', { coin: coin.coin, electrum: true, ipaddr: conf.ipaddr, port: conf.port }));
+    }
+
     @action setTrade = (coin, type) => {
-        const self = this;
-        console.log(coin.coin);
-        // check if inside the portfolio, if not wait for backend event after activated
-        if (!self.getPortfolioCoin(coin.coin)) {
-            return self.enableCoin(coin.coin, type);
+        let ipaddr;
+        let port;
+        const electrum = !coin.installed;
+        if (electrum) {
+            const electrumConf = electrumConfig.filter((svr) => svr.coin === coin.coin)[0];
+            ipaddr = electrumConf.ipaddr;
+            port = electrumConf.port;
         }
-        this.updateTrade(coin.coin, type);
+
+        const installedCoin = this.getCoin(coin.coin);
+
+        if (!installedCoin || installedCoin.status !== 'active') {
+            console.log(`enable ${coin.coin}`);
+            if (!electrum) {
+                ipcRenderer.send('enableCoin', { coin: coin.coin, type, electrum, ipaddr, port })
+            } else {
+                this.enableElectrum(coin)
+            }
+        } else {
+            this.updateTrade(coin.coin, type)
+        }
     }
 
     @action autoSetTrade = (coin) => {
         // activate the coin and set as rradeBase
-        this.setTrade({ coin }, 'Base');
+        this.setTrade(coin, 'Base');
         // search for the highest balance and activate as tradeRel
-        const firstNotSelf = this.installedCoins.filter((installed) => installed.coin !== coin)[0];
+        let firstNotSelf = this.installedCoins.filter((installed) => installed.coin !== coin.coin)[0];
+        if (!firstNotSelf) {
+            firstNotSelf = this.coinsList.filter((item) => CONSTANTS.availableElectrum.indexOf(item.coin) !== -1 && item.coin !== coin.coin)[0];
+        }
         this.setTrade(firstNotSelf, 'Rel');
     }
 
-    @action enableCoin = (coin, type) => {
-        ipcRenderer.send('enableCoin', { coin, type })
-    }
 
     @action refresh = () => { ipcRenderer.send('refreshPortfolio') }
 
-    @action renderBalance = (short) => {
-        const opts = { format: '%v %c', code: short, maxFraction: 8 };
-        const coin = this.getPortfolioCoin(short);
-        return formatCurrency(coin.balance, opts)
-    }
 
-    portfolioRenderBTC = (short) => {
+    portfolioTotal = () => {
         const self = this;
-        const amount = this.getPortfolioCoin(short).btcBalance;
-        return formatCurrency(amount, self.formatCrypto)
-    }
+        const amount = self.installedCoins.reduce((accumulator, coin) => {
+            const market = self.getMarket(coin.coin);
+            if (market) {
+                return accumulator + (market.price * coin.balance)
+            }
 
-    portfolioRenderFIAT = (short) => {
-        const self = this;
-        const amount = this.getPortfolioCoin(short)[this.defaultCurrency.type];
-        return formatCurrency(amount, self.formatFIAT)
-    }
+            return accumulator
+        }, 0);
 
-    get24hEvolution = (short) => {
-        const coin = this.getPortfolioCoin(short);
-        return coin.perc;
-    }
-
-    @action kmdTotal = (format = true) => {
-        const self = this;
-        /* call reduce() on the array, passing a callback
-        that adds all the values together */
-        const amount = self.installedCoins.reduce((accumulator, coin) => accumulator + coin.KMDvalue, 0);
-        if (format) {
-            return formatCurrency(amount, self.formatCrypto)
+        if (amount > 0) {
+            self.total.fiat = formatCurrency(amount, self.formatFIAT);
+            const relMarket = self.getMarket(self.defaultCrypto);
+            if (relMarket) {
+                self.total.rel = formatCurrency(amount / relMarket.price, self.formatCrypto);
+            }
+        } else {
+            self.total.fiat = '';
+            self.total.rel = '';
         }
-
-        return amount;
-    }
-
-    portfolioTotal = (format = true) => {
-        const self = this;
-        /* call reduce() on the array, passing a callback
-        that adds all the values together */
-        const amount = self.portfolio.reduce((accumulator, coin) => accumulator + coin[self.defaultCurrency.type], 0);
-        if (format) {
-            return formatCurrency(amount, self.formatFIAT)
-        }
-
-        return amount;
     }
 
     portfolioEvolution = () => {
@@ -190,21 +225,18 @@ export default class PortfolioStore {
         return ((total / this.portfolioTotal(false)) * 100).toFixed(2);
     }
 
-    // portfolioTotalBtc = (short = this.defaultCrypto) => {
-    //     const self = this;
-    //     const total = this.portfolioTotal(false);
-    //     const coinValue = this.getCoin(short).price;
-    //     return formatCurrency(total / coinValue, self.formatCrypto)
-    // }
+    renderBalance = (amount, code) => {
+        if (amount > 0) {
+            return formatCurrency(amount, { format: '%v %c', code, maxFraction: 8 });
+        }
+        return '';
+    }
 
 
     @action leave = () => {
         const self = this;
         self.tradeBase = false;
         self.tradeRel = false;
-        self.orderbook.killListener();
-
-        clearInterval(self.autorefresh);
     }
 
 }

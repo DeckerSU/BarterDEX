@@ -1,77 +1,116 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Link } from 'react-router';
-import { Trade, Modal, CoinPicker } from '../';
-import plus from '../../static/plus.svg';
-import arrow from '../../static/arrow.svg';
+import classNames from 'classnames';
 import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+
+import { CoinPicker } from '../';
+import circles from '../../static/circlesWhite.svg';
+import arrow from '../../static/arrow.svg';
 
 @inject('app')
 @observer
 class Dashboard extends React.Component {
 
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            coinToEnable: ''
+        }
+    }
+
+    setCoinToEnable = (coinToEnable) => {
+        this.setState({ coinToEnable })
+    }
+
+    getClassState = (coin) => {
+        const self = this;
+        // const { loader } = this.props.app;
+        // const activationLoader = loader.getLoader(4);
+        return classNames({
+            'coinList-coin': true,
+            [coin]: true,
+            enabling: self.state.coinToEnable === coin
+        })
+    }
+
+    enableCoin = (e, coin) => {
+        const { enableElectrum } = this.props.app.portfolio;
+        enableElectrum(coin);
+    }
+
+    noticeNoCoin = () =>
+         (<div className="dashboard-empty">
+           <h3>No active coin detected</h3>
+           <p>We didn't detected any coin wallet running on your machine. Run a coin wallet or add electrum coin via the top right button.</p>
+         </div>)
+
     renderDashboard = () => {
-        // const { tradeBase, tradeRel, coinsList } = this.props.app.portfolio;
-        const { installedCoins, colors, kmdTotal } = this.props.app.portfolio;
+        const { installedCoins, colors, total, renderBalance } = this.props.app.portfolio;
+        const hasRel = installedCoins.filter((coin) => coin.rel > 0);
 
         return (
           <section className="dashboard-wallets">
             <header className="dashboard-wallets-header component-header">
               <h2>
+                { hasRel.length > 0 && <ResponsiveContainer className="dashboard-balances-pie">
+                  <PieChart>
+                    <Pie
+                      data={hasRel}
+                      dataKey="rel"
+                      startAngle={180}
+                      endAngle={0}
+                      isAnimationActive={false}
+                    >
+                      {hasRel.map((coin) => <Cell key={coin.coin} stroke="transparent" fill={colors[coin.coin]} />)}
+                    </Pie>
+                  </PieChart>
+                </ResponsiveContainer> }
 
-                  { installedCoins.filter((coin) => coin.KMDvalue > 0).length > 0 && <ResponsiveContainer className="dashboard-balances-pie">
-                    <PieChart>
-                      <Pie
-                        data={installedCoins}
-                        dataKey="KMDvalue"
-                        startAngle={180}
-                        endAngle={0}
-                      >
-                        {installedCoins.map((coin) => <Cell key={coin.coin} stroke="transparent" fill={colors[coin.coin]} />)}
-                      </Pie>
-                    </PieChart>
-                  </ResponsiveContainer>
-                }
                 <div>Portfolio</div>
-                <small><span>{kmdTotal()}</span></small>
+                <small><span>{ total.rel }</span></small>
 
               </h2>
-              <button className="dashboard-wallets-header-add action primary" disabled>
-                <span>electrum (soon)</span>
-                <i dangerouslySetInnerHTML={{ __html: plus }} />
-              </button>
+              <CoinPicker onlyElectrum onSelected={(e, coin) => this.enableCoin(e, coin)} />
             </header>
+
+
+            { installedCoins.length === 0 && this.noticeNoCoin() }
+
+
             <ul className="dashboard-wallets-list">
-              { installedCoins.map((installed) => (
-                <li key={installed.coin} className={`dashboard-wallets-list-item ${installed.coin}`}>
-                  <Link to={`/wallet/${installed.coin}`} activeClassName="active">
-                    <div className="dashboard-wallets-list-item_icon coin-colorized"> { installed.icon }</div>
-                    <div className="dashboard-wallets-list-item_balance">
-                      <strong>{ installed.name }</strong>
-                      <small>{ installed.balance } { installed.coin }</small>
-                    </div>
-                    <button className="dashboard-wallets-list-item_action" dangerouslySetInnerHTML={{ __html: arrow }} />
-                  </Link>
-                </li>))}
+              { installedCoins.map((installed) => {
+                  const isNative = !installed.electrum;
+
+                  return (
+                    <li key={installed.coin} className={this.getClassState(installed.coin)}>
+                      <Link onClick={() => this.setCoinToEnable(installed.coin)} className={installed.coin} to={`/wallet/${installed.coin}/${isNative}`} activeClassName="active">
+                        <div className="coinList-coin_icon coin-colorized"> { installed.icon }</div>
+                        <div className="coinList-coin_balance">
+                          <strong>{ installed.name }</strong>
+                          <small>{ renderBalance(installed.balance, installed.coin) } </small>
+                          <small>{ isNative ? 'Native mode' : 'Electrum mode' } </small>
+                        </div>
+                        <span className="coinList-coin_action" dangerouslySetInnerHTML={{ __html: arrow }} />
+                        <span className="coinList-coin_action_loader" dangerouslySetInnerHTML={{ __html: circles }} />
+
+                      </Link>
+                    </li>
+                  )
+              }
+            )}
             </ul>
           </section>
 
         )
     }
 
-    renderNotice = () => {
-        const { installedCoins } = this.props.app.portfolio;
-        const { updateErrors } = this.props.app.notifier;
-        updateErrors({ error: 1, desc: 'you must have at least 2 coin wallet running in order to trade them on BarterDEX' });
-    }
 
     render() {
-        const { installedCoins } = this.props.app.portfolio;
-
         return (
           <section className="dashboard">
-            { installedCoins.length > 1 ? this.renderDashboard() : this.renderNotice() }
+            { this.renderDashboard() }
           </section>
         )
     }

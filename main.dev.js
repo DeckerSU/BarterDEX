@@ -36,30 +36,29 @@ app.on('ready', async () => {
 
     mainWindow = new BrowserWindow({
         width: 400,
-        height: 720,
-        resizable: false,
-        frame: false,
-        transparent: true,
+        height: 786,
+        minWidth: 400,
         show: false,
-        hasShadow: false
+        backgroundColor: '#F8FAFF'
     })
+
+    // Bootstrap listeners
+    const eventsConfig = { api, emitter: mainWindow.webContents, listener: ipcMain, config: main };
+    const eventsElectron = { app, emitter: mainWindow.webContents, mainWindow, api, config: main, listener: ipcMain };
+
+    electronEvents(eventsElectron);
+
+    shepherdEvents(eventsConfig);
+    tradeEvents(eventsConfig);
+    portfolioEvents(eventsConfig);
+    orderbookEvents(eventsConfig);
+
 
     mainWindow.loadURL(`file://${__dirname}/app/index.html`)
 
     mainWindow.webContents.on('did-finish-load', () => {
         mainWindow.show()
         mainWindow.focus()
-
-        // Bootstrap listeners
-        const eventsConfig = { api, emitter: mainWindow.webContents, listener: ipcMain, config: main };
-        const eventsElectron = { app, emitter: mainWindow.webContents, mainWindow, api, config: main, listener: ipcMain };
-
-        electronEvents(eventsElectron);
-
-        shepherdEvents(eventsConfig);
-        tradeEvents(eventsConfig);
-        portfolioEvents(eventsConfig);
-        orderbookEvents(eventsConfig);
     });
 
     mainWindow.on('closed', () => { mainWindow = null })

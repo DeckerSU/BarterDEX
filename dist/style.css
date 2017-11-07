@@ -450,7 +450,7 @@
 
 /* Make current element a circle */
 
-.circle, .toggler__broadcaster { border-radius: 50%!important; }
+.circle { border-radius: 50%!important; }
 
 .breakWord {
     word-wrap: break-word;
@@ -481,6 +481,17 @@
         flex-shrink: 0;
     font-weight: 600;
     font-size: 22px;
+}
+
+.coin-icon-placeholder, .coin-icon-svg {
+    background: rgba(256, 256, 256, .1);
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+    border-radius: 50% !important;
 }
 
 .large-number {
@@ -522,7 +533,7 @@ code {
 
 /* Make child vertical and horizontal centered */
 
-.flexCenter, .window-header-logo, .toggler__wrapper, .toggler__broadcaster, .toggler__player, [class*='toggler__player-button'], .control-actions, .control-action, .control-action > *, .control-action > * > [class*='-icon'], .Placeholder-logo {
+.flexCenter, .window-header-logo, .Placeholder-logo {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -534,7 +545,7 @@ code {
             align-items: center;
 }
 
-.flexColumnCenter, .notifier-list, .controls-container {
+.flexColumnCenter, .notifier-items {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -556,553 +567,557 @@ code {
     cursor: default !important;
 }
 
-/* crypto colors*/
+.MNZ > .coin-colorized { color: #242E3A!important; }
 
-.ADC .coin-colorized { color: #3CB0E5!important; }
+.ADC > .coin-colorized { color: #3CB0E5!important; }
 
-.AEON .coin-colorized { color: #164450!important; }
+.AEON > .coin-colorized { color: #164450!important; }
 
-.AMP .coin-colorized { color: #048DD2!important; }
+.AMP > .coin-colorized { color: #048DD2!important; }
 
-.ANC .coin-colorized { color: #000!important; }
+.ANC > .coin-colorized { color: #000!important; }
 
-.ARCH .coin-colorized { color: #002652!important; }
+.ARCH > .coin-colorized { color: #002652!important; }
 
-.ARDR .coin-colorized { color: #1162a1!important; }
+.ARDR > .coin-colorized { color: #1162a1!important; }
 
-.AUR .coin-colorized { color: #136c5e!important; }
+.AUR > .coin-colorized { color: #136c5e!important; }
 
-.BANX .coin-colorized { color: #225BA6!important; }
+.BANX > .coin-colorized { color: #225BA6!important; }
 
-.BAT .coin-colorized { color: #9e1f63!important; }
+.BAT > .coin-colorized { color: #9e1f63!important; }
 
-.BAY .coin-colorized { color: #584ba1!important; }
+.BAY > .coin-colorized { color: #584ba1!important; }
 
-.BC .coin-colorized { color: #202121!important; }
+.BC > .coin-colorized { color: #202121!important; }
 
-.BCN .coin-colorized { color: #964F51!important; }
+.BCN > .coin-colorized { color: #964F51!important; }
 
-.BFT .coin-colorized { color: #4fc3f7!important; }
+.BFT > .coin-colorized { color: #4fc3f7!important; }
 
-.BRK .coin-colorized { color: #194fa0!important; }
+.BRK > .coin-colorized { color: #194fa0!important; }
 
-.BRX .coin-colorized { color: #a8c300!important; }
+.BRX > .coin-colorized { color: #a8c300!important; }
 
-.BSD .coin-colorized { color: #1186E7!important; }
+.BSD > .coin-colorized { color: #1186E7!important; }
 
-.BTA .coin-colorized { color: #210094!important; }
+.BTA > .coin-colorized { color: #210094!important; }
 
-.BTC .coin-colorized, .BCC .coin-colorized { color: #F7931A!important; }
+.BTC > .coin-colorized, .BCC > .coin-colorized { color: #F7931A!important; }
 
-.BTCD .coin-colorized { color: #2A72DC!important; }
+.BTCD > .coin-colorized { color: #2A72DC!important; }
 
-.BTS .coin-colorized { color: #03A9E0!important; }
+.BTS > .coin-colorized { color: #03A9E0!important; }
 
-.CLAM .coin-colorized { color: #D6AB31!important; }
+.CLAM > .coin-colorized { color: #D6AB31!important; }
 
-.CLOAK .coin-colorized { color: #DF3F1E!important; }
+.CLOAK > .coin-colorized { color: #DF3F1E!important; }
 
-.DAO .coin-colorized { color: #FF3B3B!important; }
+.DAO > .coin-colorized { color: #FF3B3B!important; }
 
-.DASH .coin-colorized { color: #1c75bc!important; }
+.DASH > .coin-colorized { color: #1c75bc!important; }
 
-.DCR .coin-colorized { color: #3b7cfb!important; }
+.DCR > .coin-colorized { color: #3b7cfb!important; }
 
-.DCT .coin-colorized { color: #008770!important; }
+.DCT > .coin-colorized { color: #008770!important; }
 
-.DGB .coin-colorized { color: #0066cc!important; }
+.DGB > .coin-colorized { color: #0066cc!important; }
 
-.DGD .coin-colorized, .DGX .coin-colorized { color: #D8A24A!important; }
+.DGD > .coin-colorized, .DGX > .coin-colorized { color: #D8A24A!important; }
 
-.DMD .coin-colorized { color: #5497b2!important; }
+.DMD > .coin-colorized { color: #5497b2!important; }
 
-.DOGE .coin-colorized { color: #BA9F33!important; }
+.DOGE > .coin-colorized { color: #BA9F33!important; }
 
-.EMC .coin-colorized { color: #674c8c!important; }
+.EMC > .coin-colorized { color: #674c8c!important; }
 
-.EOS .coin-colorized { color: #19191A!important; }
+.EOS > .coin-colorized { color: #19191A!important; }
 
-.ERC .coin-colorized { color: #101E84!important; }
+.ERC > .coin-colorized { color: #101E84!important; }
 
-.ETC .coin-colorized { color: #669073!important; }
+.ETC > .coin-colorized { color: #669073!important; }
 
-.ETH .coin-colorized { color: #282828!important; }
+.ETH > .coin-colorized { color: #282828!important; }
 
-.FC2 .coin-colorized { color: #040405!important; }
+.FC2 > .coin-colorized { color: #040405!important; }
 
-.FCT .coin-colorized { color: #2175BB!important; }
+.FCT > .coin-colorized { color: #2175BB!important; }
 
-.FLO .coin-colorized { color: #1358C8!important; }
+.FLO > .coin-colorized { color: #1358C8!important; }
 
-.FRK .coin-colorized { color: #0633cd!important; }
+.FRK > .coin-colorized { color: #0633cd!important; }
 
-.FTC .coin-colorized { color: #679EF1!important; }
+.FTC > .coin-colorized { color: #679EF1!important; }
 
-.GAME .coin-colorized { color: #ed1b24!important; }
+.GAME > .coin-colorized { color: #ed1b24!important; }
 
-.GDC .coin-colorized { color: #E9A226!important; }
+.GDC > .coin-colorized { color: #E9A226!important; }
 
-.GEMZ .coin-colorized { color: #e86060!important; }
+.GEMZ > .coin-colorized { color: #e86060!important; }
 
-.GLD .coin-colorized { color: #E8BE24!important; }
+.GLD > .coin-colorized { color: #E8BE24!important; }
 
-.GNO .coin-colorized { color: #00A6C4!important; }
+.GNO > .coin-colorized { color: #00A6C4!important; }
 
-.GNT .coin-colorized { color: #00d6e3!important; }
+.GNT > .coin-colorized { color: #00d6e3!important; }
 
-.GOLOS .coin-colorized { color: #2670B7!important; }
+.GOLOS > .coin-colorized { color: #2670B7!important; }
 
-.GRC .coin-colorized { color: #88A13C!important; }
+.GRC > .coin-colorized { color: #88A13C!important; }
 
-.GRS .coin-colorized { color: #648FA0!important; }
+.GRS > .coin-colorized { color: #648FA0!important; }
 
-.HEAT .coin-colorized { color: #ff5606!important; }
+.HEAT > .coin-colorized { color: #ff5606!important; }
 
-.ICN .coin-colorized { color: #4c6f8c!important; }
+.ICN > .coin-colorized { color: #4c6f8c!important; }
 
-.IFC .coin-colorized { color: #ed272d!important; }
+.IFC > .coin-colorized { color: #ed272d!important; }
 
-.INCNT .coin-colorized { color: #f2932f!important; }
+.INCNT > .coin-colorized { color: #f2932f!important; }
 
-.IOC .coin-colorized { color: #2fa3de!important; }
+.IOC > .coin-colorized { color: #2fa3de!important; }
 
-.IOTA .coin-colorized { color: #FFFFFF!important; }
+.IOTA > .coin-colorized { color: #FFFFFF!important; }
 
-.JBS .coin-colorized { color: #1A8BCD!important; }
+.JBS > .coin-colorized { color: #1A8BCD!important; }
 
-.KMD .coin-colorized { color: #326464!important; }
+.KMD > .coin-colorized { color: #326464!important; }
 
-.KOBO .coin-colorized { color: #80C342!important; }
+.KOBO > .coin-colorized { color: #80C342!important; }
 
-.KORE .coin-colorized { color: #DF4124!important; }
+.KORE > .coin-colorized { color: #DF4124!important; }
 
-.LBC .coin-colorized { color: #015C47!important; }
+.LBC > .coin-colorized { color: #015C47!important; }
 
-.LDOGE .coin-colorized { color: #ffcc00!important; }
+.LDOGE > .coin-colorized { color: #ffcc00!important; }
 
-.LISK .coin-colorized { color: #1A6896!important; }
+.LISK > .coin-colorized { color: #1A6896!important; }
 
-.LTC .coin-colorized { color: #838383!important; }
+.LTC > .coin-colorized { color: #838383!important; }
 
-.MAID .coin-colorized { color: #5492D6!important; }
+.MAID > .coin-colorized { color: #5492D6!important; }
 
-.MCO .coin-colorized { color: #0D3459!important; }
+.MCO > .coin-colorized { color: #0D3459!important; }
 
-.MINT .coin-colorized { color: #006835!important; }
+.MINT > .coin-colorized { color: #006835!important; }
 
-.MONA .coin-colorized { color: #a99364!important; }
+.MONA > .coin-colorized { color: #a99364!important; }
 
-.MRC .coin-colorized { color: #4279bd!important; }
+.MRC > .coin-colorized { color: #4279bd!important; }
 
-.MSC .coin-colorized { color: #1D4983!important; }
+.MSC > .coin-colorized { color: #1D4983!important; }
 
-.MTR .coin-colorized { color: #b92429!important; }
+.MTR > .coin-colorized { color: #b92429!important; }
 
-.MUE .coin-colorized { color: #f5a10e!important; }
+.MUE > .coin-colorized { color: #f5a10e!important; }
 
-.NBT .coin-colorized { color: #FFC93D!important; }
+.NBT > .coin-colorized { color: #FFC93D!important; }
 
-.NEO .coin-colorized { color: #58BF00!important; }
+.NEO > .coin-colorized { color: #58BF00!important; }
 
-.NEOS .coin-colorized { color: #1d1d1b!important; }
+.NEOS > .coin-colorized { color: #1d1d1b!important; }
 
-.NEU .coin-colorized { color: #2983c0!important; }
+.NEU > .coin-colorized { color: #2983c0!important; }
 
-.NLG .coin-colorized { color: #003E7E!important; }
+.NLG > .coin-colorized { color: #003E7E!important; }
 
-.NMC .coin-colorized { color: #6787B7!important; }
+.NMC > .coin-colorized { color: #6787B7!important; }
 
-.NOTE .coin-colorized { color: #42daff!important; }
+.NOTE > .coin-colorized { color: #42daff!important; }
 
-.NVC .coin-colorized { color: #ecab41!important; }
+.NVC > .coin-colorized { color: #ecab41!important; }
 
-.NXT .coin-colorized { color: #008FBB!important; }
+.NXT > .coin-colorized { color: #008FBB!important; }
 
-.OK .coin-colorized { color: #0165A4!important; }
+.OK > .coin-colorized { color: #0165A4!important; }
 
-.OMG .coin-colorized { color: #1A53F0!important; }
+.OMG > .coin-colorized { color: #1A53F0!important; }
 
-.OMNI .coin-colorized { color: #18347E!important; }
+.OMNI > .coin-colorized { color: #18347E!important; }
 
-.OPAL .coin-colorized { color: #7193AA!important; }
+.OPAL > .coin-colorized { color: #7193AA!important; }
 
-.PART .coin-colorized { color: #05D5A3!important; }
+.PART > .coin-colorized { color: #05D5A3!important; }
 
-.PIGGY .coin-colorized { color: #F27A7A!important; }
+.PIGGY > .coin-colorized { color: #F27A7A!important; }
 
-.PINK .coin-colorized { color: #ED31CA!important; }
+.PINK > .coin-colorized { color: #ED31CA!important; }
 
-.PIVX .coin-colorized { color: #3b2f4d!important; }
+.PIVX > .coin-colorized { color: #3b2f4d!important; }
 
-.POT .coin-colorized { color: #105B2F!important; }
+.POT > .coin-colorized { color: #105B2F!important; }
 
-.PPC .coin-colorized { color: #3FA30C!important; }
+.PPC > .coin-colorized { color: #3FA30C!important; }
 
-.QRK .coin-colorized { color: #22AABF!important; }
+.QRK > .coin-colorized { color: #22AABF!important; }
 
-.RADS .coin-colorized { color: #924cea!important; }
+.RADS > .coin-colorized { color: #924cea!important; }
 
-.RBIES .coin-colorized { color: #C62436!important; }
+.RBIES > .coin-colorized { color: #C62436!important; }
 
-.RBT .coin-colorized { color: #0d4982!important; }
+.RBT > .coin-colorized { color: #0d4982!important; }
 
-.RBY .coin-colorized { color: #D31F26!important; }
+.RBY > .coin-colorized { color: #D31F26!important; }
 
-.RDD .coin-colorized { color: #ED1C24!important; }
+.RDD > .coin-colorized { color: #ED1C24!important; }
 
-.REP .coin-colorized { color: #40a2cb!important; }
+.REP > .coin-colorized { color: #40a2cb!important; }
 
-.RISE .coin-colorized { color: #43CEA2!important; }
+.RISE > .coin-colorized { color: #43CEA2!important; }
 
-.SAR .coin-colorized { color: #1B72B8!important; }
+.SAR > .coin-colorized { color: #1B72B8!important; }
 
-.SCOT .coin-colorized { color: #3498DB!important; }
+.SCOT > .coin-colorized { color: #3498DB!important; }
 
-.SDC .coin-colorized { color: #981D2D!important; }
+.SDC > .coin-colorized { color: #981D2D!important; }
 
-.SIA .coin-colorized { color: #00CBA0!important; }
+.SIA > .coin-colorized { color: #00CBA0!important; }
 
-.SJCX .coin-colorized { color: #003366!important; }
+.SJCX > .coin-colorized { color: #003366!important; }
 
-.SLG .coin-colorized { color: #5A6875!important; }
+.SLG > .coin-colorized { color: #5A6875!important; }
 
-.SLS .coin-colorized { color: #1EB549!important; }
+.SLS > .coin-colorized { color: #1EB549!important; }
 
-.SNRG .coin-colorized { color: #160363!important; }
+.SNRG > .coin-colorized { color: #160363!important; }
 
-.START .coin-colorized { color: #01AEF0!important; }
+.START > .coin-colorized { color: #01AEF0!important; }
 
-.STEEM .coin-colorized { color: #1A5099!important; }
+.STEEM > .coin-colorized { color: #1A5099!important; }
 
-.STR .coin-colorized { color: #08B5E5!important; }
+.STR > .coin-colorized { color: #08B5E5!important; }
 
-.STRAT .coin-colorized { color: #2398dd!important; }
+.STRAT > .coin-colorized { color: #2398dd!important; }
 
-.SWIFT .coin-colorized { color: #428BCA!important; }
+.SWIFT > .coin-colorized { color: #428BCA!important; }
 
-.SYNC .coin-colorized { color: #008DD2!important; }
+.SYNC > .coin-colorized { color: #008DD2!important; }
 
-.SYS .coin-colorized { color: #0098DA!important; }
+.SYS > .coin-colorized { color: #0098DA!important; }
 
-.TRIG .coin-colorized { color: #1fbff4!important; }
+.TRIG > .coin-colorized { color: #1fbff4!important; }
 
-.TX .coin-colorized { color: #1F8BCC!important; }
+.TX > .coin-colorized { color: #1F8BCC!important; }
 
-.UBQ .coin-colorized { color: #00ec8d!important; }
+.UBQ > .coin-colorized { color: #00ec8d!important; }
 
-.UNITY .coin-colorized { color: #ED8527!important; }
+.UNITY > .coin-colorized { color: #ED8527!important; }
 
-.USDT .coin-colorized { color: #2CA07A!important; }
+.USDT > .coin-colorized { color: #2CA07A!important; }
 
-.VIOR .coin-colorized { color: #1F52A4!important; }
+.VIOR > .coin-colorized { color: #1F52A4!important; }
 
-.VNL .coin-colorized { color: #404249!important; }
+.VNL > .coin-colorized { color: #404249!important; }
 
-.VPN .coin-colorized { color: #589700!important; }
+.VPN > .coin-colorized { color: #589700!important; }
 
-.VRC .coin-colorized { color: #418bca!important; }
+.VRC > .coin-colorized { color: #418bca!important; }
 
-.VTC .coin-colorized { color: #1b5c2e!important; }
+.VTC > .coin-colorized { color: #1b5c2e!important; }
 
-.WAVES .coin-colorized { color: #24aad6!important; }
+.WAVES > .coin-colorized { color: #24aad6!important; }
 
-.XAI .coin-colorized { color: #2ef99f!important; }
+.XAI > .coin-colorized { color: #2ef99f!important; }
 
-.XBS .coin-colorized { color: #d3261d!important; }
+.XBS > .coin-colorized { color: #d3261d!important; }
 
-.XCP .coin-colorized { color: #EC1550!important; }
+.XCP > .coin-colorized { color: #EC1550!important; }
 
-.XEM .coin-colorized { color: #41bf76!important; }
+.XEM > .coin-colorized { color: #41bf76!important; }
 
-.XMR .coin-colorized { color: #FF6600!important; }
+.XMR > .coin-colorized { color: #FF6600!important; }
 
-.XPM .coin-colorized { color: #e5b625!important; }
+.XPM > .coin-colorized { color: #e5b625!important; }
 
-.XRP .coin-colorized { color: #346AA9!important; }
+.XRP > .coin-colorized { color: #346AA9!important; }
 
-.XTZ .coin-colorized { color: #A6DF00!important; }
+.XTZ > .coin-colorized { color: #A6DF00!important; }
 
-.XVG .coin-colorized { color: #42AFB2!important; }
+.XVG > .coin-colorized { color: #42AFB2!important; }
 
-.YBC .coin-colorized { color: #D6C154!important; }
+.YBC > .coin-colorized { color: #D6C154!important; }
 
-.ZEC .coin-colorized { color: #e5a93d!important; }
+.ZEC > .coin-colorized { color: #e5a93d!important; }
 
-.ZEIT .coin-colorized { color: #ACACAC!important; }
+.ZEIT > .coin-colorized { color: #ACACAC!important; }
 
-.REVS .coin-colorized { color: #FF6600!important; }
+.REVS > .coin-colorized { color: #FF6600!important; }
 
-.ADC .coin-colorized svg { fill: #3CB0E5!important; }
+.MNZ > .coin-colorized svg path { fill: #B92484 !important; }
 
-.AEON .coin-colorized svg { fill: #164450!important; }
+.ADC > .coin-colorized svg { fill: #3CB0E5!important; }
 
-.AMP .coin-colorized svg { fill: #048DD2!important; }
+.AEON > .coin-colorized svg { fill: #164450!important; }
 
-.ANC .coin-colorized svg { fill: #000!important; }
+.AMP > .coin-colorized svg { fill: #048DD2!important; }
 
-.ARCH .coin-colorized svg { fill: #002652!important; }
+.ANC > .coin-colorized svg { fill: #000!important; }
 
-.ARDR .coin-colorized svg { fill: #1162a1!important; }
+.ARCH > .coin-colorized svg { fill: #002652!important; }
 
-.AUR .coin-colorized svg { fill: #136c5e!important; }
+.ARDR > .coin-colorized svg { fill: #1162a1!important; }
 
-.BANX .coin-colorized svg { fill: #225BA6!important; }
+.AUR > .coin-colorized svg { fill: #136c5e!important; }
 
-.BAT .coin-colorized svg { fill: #9e1f63!important; }
+.BANX > .coin-colorized svg { fill: #225BA6!important; }
 
-.BAY .coin-colorized svg { fill: #584ba1!important; }
+.BAT > .coin-colorized svg { fill: #9e1f63!important; }
 
-.BC .coin-colorized svg { fill: #202121!important; }
+.BAY > .coin-colorized svg { fill: #584ba1!important; }
 
-.BCN .coin-colorized svg { fill: #964F51!important; }
+.BC > .coin-colorized svg { fill: #202121!important; }
 
-.BFT .coin-colorized svg { fill: #4fc3f7!important; }
+.BCN > .coin-colorized svg { fill: #964F51!important; }
 
-.BRK .coin-colorized svg { fill: #194fa0!important; }
+.BFT > .coin-colorized svg { fill: #4fc3f7!important; }
 
-.BRX .coin-colorized svg { fill: #a8c300!important; }
+.BRK > .coin-colorized svg { fill: #194fa0!important; }
 
-.BSD .coin-colorized svg { fill: #1186E7!important; }
+.BRX > .coin-colorized svg { fill: #a8c300!important; }
 
-.BTA .coin-colorized svg { fill: #210094!important; }
+.BSD > .coin-colorized svg { fill: #1186E7!important; }
 
-.BTC .coin-colorized svg, .BCC .coin-colorized svg { fill: #F7931A!important; }
+.BTA > .coin-colorized svg { fill: #210094!important; }
 
-.BTCD .coin-colorized svg { fill: #2A72DC!important; }
+.BTC > .coin-colorized svg, .BCC > .coin-colorized svg { fill: #F7931A!important; }
 
-.BTS .coin-colorized svg { fill: #03A9E0!important; }
+.BTCD > .coin-colorized svg { fill: #2A72DC!important; }
 
-.CLAM .coin-colorized svg { fill: #D6AB31!important; }
+.BTS > .coin-colorized svg { fill: #03A9E0!important; }
 
-.CLOAK .coin-colorized svg { fill: #DF3F1E!important; }
+.CLAM > .coin-colorized svg { fill: #D6AB31!important; }
 
-.DAO .coin-colorized svg { fill: #FF3B3B!important; }
+.CLOAK > .coin-colorized svg { fill: #DF3F1E!important; }
 
-.DASH .coin-colorized svg { fill: #1c75bc!important; }
+.DAO > .coin-colorized svg { fill: #FF3B3B!important; }
 
-.DCR .coin-colorized svg { fill: #3b7cfb!important; }
+.DASH > .coin-colorized svg { fill: #1c75bc!important; }
 
-.DCT .coin-colorized svg { fill: #008770!important; }
+.DCR > .coin-colorized svg { fill: #3b7cfb!important; }
 
-.DGB .coin-colorized svg { fill: #0066cc!important; }
+.DCT > .coin-colorized svg { fill: #008770!important; }
 
-.DGD .coin-colorized svg, .DGX .coin-colorized svg { fill: #D8A24A!important; }
+.DGB > .coin-colorized svg { fill: #0066cc!important; }
 
-.DMD .coin-colorized svg { fill: #5497b2!important; }
+.DGD > .coin-colorized svg, .DGX > .coin-colorized svg { fill: #D8A24A!important; }
 
-.DOGE .coin-colorized svg { fill: #BA9F33!important; }
+.DMD > .coin-colorized svg { fill: #5497b2!important; }
 
-.EMC .coin-colorized svg { fill: #674c8c!important; }
+.DOGE > .coin-colorized svg { fill: #BA9F33!important; }
 
-.EOS .coin-colorized svg { fill: #19191A!important; }
+.EMC > .coin-colorized svg { fill: #674c8c!important; }
 
-.ERC .coin-colorized svg { fill: #101E84!important; }
+.EOS > .coin-colorized svg { fill: #19191A!important; }
 
-.ETC .coin-colorized svg { fill: #669073!important; }
+.ERC > .coin-colorized svg { fill: #101E84!important; }
 
-.ETH .coin-colorized svg { fill: #282828!important; }
+.ETC > .coin-colorized svg { fill: #669073!important; }
 
-.FC2 .coin-colorized svg { fill: #040405!important; }
+.ETH > .coin-colorized svg { fill: #282828!important; }
 
-.FCT .coin-colorized svg { fill: #2175BB!important; }
+.FC2 > .coin-colorized svg { fill: #040405!important; }
 
-.FLO .coin-colorized svg { fill: #1358C8!important; }
+.FCT > .coin-colorized svg { fill: #2175BB!important; }
 
-.FRK .coin-colorized svg { fill: #0633cd!important; }
+.FLO > .coin-colorized svg { fill: #1358C8!important; }
 
-.FTC .coin-colorized svg { fill: #679EF1!important; }
+.FRK > .coin-colorized svg { fill: #0633cd!important; }
 
-.GAME .coin-colorized svg { fill: #ed1b24!important; }
+.FTC > .coin-colorized svg { fill: #679EF1!important; }
 
-.GDC .coin-colorized svg { fill: #E9A226!important; }
+.GAME > .coin-colorized svg { fill: #ed1b24!important; }
 
-.GEMZ .coin-colorized svg { fill: #e86060!important; }
+.GDC > .coin-colorized svg { fill: #E9A226!important; }
 
-.GLD .coin-colorized svg { fill: #E8BE24!important; }
+.GEMZ > .coin-colorized svg { fill: #e86060!important; }
 
-.GNO .coin-colorized svg { fill: #00A6C4!important; }
+.GLD > .coin-colorized svg { fill: #E8BE24!important; }
 
-.GNT .coin-colorized svg { fill: #00d6e3!important; }
+.GNO > .coin-colorized svg { fill: #00A6C4!important; }
 
-.GOLOS .coin-colorized svg { fill: #2670B7!important; }
+.GNT > .coin-colorized svg { fill: #00d6e3!important; }
 
-.GRC .coin-colorized svg { fill: #88A13C!important; }
+.GOLOS > .coin-colorized svg { fill: #2670B7!important; }
 
-.GRS .coin-colorized svg { fill: #648FA0!important; }
+.GRC > .coin-colorized svg { fill: #88A13C!important; }
 
-.HEAT .coin-colorized svg { fill: #ff5606!important; }
+.GRS > .coin-colorized svg { fill: #648FA0!important; }
 
-.ICN .coin-colorized svg { fill: #4c6f8c!important; }
+.HEAT > .coin-colorized svg { fill: #ff5606!important; }
 
-.IFC .coin-colorized svg { fill: #ed272d!important; }
+.ICN > .coin-colorized svg { fill: #4c6f8c!important; }
 
-.INCNT .coin-colorized svg { fill: #f2932f!important; }
+.IFC > .coin-colorized svg { fill: #ed272d!important; }
 
-.IOC .coin-colorized svg { fill: #2fa3de!important; }
+.INCNT > .coin-colorized svg { fill: #f2932f!important; }
 
-.IOTA .coin-colorized svg { fill: #FFFFFF!important; }
+.IOC > .coin-colorized svg { fill: #2fa3de!important; }
 
-.JBS .coin-colorized svg { fill: #1A8BCD!important; }
+.IOTA > .coin-colorized svg { fill: #FFFFFF!important; }
 
-.KMD .coin-colorized svg { fill: #326464!important; }
+.JBS > .coin-colorized svg { fill: #1A8BCD!important; }
 
-.KOBO .coin-colorized svg { fill: #80C342!important; }
+.KMD > .coin-colorized svg { fill: #326464!important; }
 
-.KORE .coin-colorized svg { fill: #DF4124!important; }
+.KOBO > .coin-colorized svg { fill: #80C342!important; }
 
-.LBC .coin-colorized svg { fill: #015C47!important; }
+.KORE > .coin-colorized svg { fill: #DF4124!important; }
 
-.LDOGE .coin-colorized svg { fill: #ffcc00!important; }
+.LBC > .coin-colorized svg { fill: #015C47!important; }
 
-.LISK .coin-colorized svg { fill: #1A6896!important; }
+.LDOGE > .coin-colorized svg { fill: #ffcc00!important; }
 
-.LTC .coin-colorized svg { fill: #838383!important; }
+.LISK > .coin-colorized svg { fill: #1A6896!important; }
 
-.MAID .coin-colorized svg { fill: #5492D6!important; }
+.LTC > .coin-colorized svg { fill: #838383!important; }
 
-.MCO .coin-colorized svg { fill: #0D3459!important; }
+.MAID > .coin-colorized svg { fill: #5492D6!important; }
 
-.MINT .coin-colorized svg { fill: #006835!important; }
+.MCO > .coin-colorized svg { fill: #0D3459!important; }
 
-.MONA .coin-colorized svg { fill: #a99364!important; }
+.MINT > .coin-colorized svg { fill: #006835!important; }
 
-.MRC .coin-colorized svg { fill: #4279bd!important; }
+.MONA > .coin-colorized svg { fill: #a99364!important; }
 
-.MSC .coin-colorized svg { fill: #1D4983!important; }
+.MRC > .coin-colorized svg { fill: #4279bd!important; }
 
-.MTR .coin-colorized svg { fill: #b92429!important; }
+.MSC > .coin-colorized svg { fill: #1D4983!important; }
 
-.MUE .coin-colorized svg { fill: #f5a10e!important; }
+.MTR > .coin-colorized svg { fill: #b92429!important; }
 
-.NBT .coin-colorized svg { fill: #FFC93D!important; }
+.MUE > .coin-colorized svg { fill: #f5a10e!important; }
 
-.NEO .coin-colorized svg { fill: #58BF00!important; }
+.NBT > .coin-colorized svg { fill: #FFC93D!important; }
 
-.NEOS .coin-colorized svg { fill: #1d1d1b!important; }
+.NEO > .coin-colorized svg { fill: #58BF00!important; }
 
-.NEU .coin-colorized svg { fill: #2983c0!important; }
+.NEOS > .coin-colorized svg { fill: #1d1d1b!important; }
 
-.NLG .coin-colorized svg { fill: #003E7E!important; }
+.NEU > .coin-colorized svg { fill: #2983c0!important; }
 
-.NMC .coin-colorized svg { fill: #6787B7!important; }
+.NLG > .coin-colorized svg { fill: #003E7E!important; }
 
-.NOTE .coin-colorized svg { fill: #42daff!important; }
+.NMC > .coin-colorized svg { fill: #6787B7!important; }
 
-.NVC .coin-colorized svg { fill: #ecab41!important; }
+.NOTE > .coin-colorized svg { fill: #42daff!important; }
 
-.NXT .coin-colorized svg { fill: #008FBB!important; }
+.NVC > .coin-colorized svg { fill: #ecab41!important; }
 
-.OK .coin-colorized svg { fill: #0165A4!important; }
+.NXT > .coin-colorized svg { fill: #008FBB!important; }
 
-.OMG .coin-colorized svg { fill: #1A53F0!important; }
+.OK > .coin-colorized svg { fill: #0165A4!important; }
 
-.OMNI .coin-colorized svg { fill: #18347E!important; }
+.OMG > .coin-colorized svg { fill: #1A53F0!important; }
 
-.OPAL .coin-colorized svg { fill: #7193AA!important; }
+.OMNI > .coin-colorized svg { fill: #18347E!important; }
 
-.PART .coin-colorized svg { fill: #05D5A3!important; }
+.OPAL > .coin-colorized svg { fill: #7193AA!important; }
 
-.PIGGY .coin-colorized svg { fill: #F27A7A!important; }
+.PART > .coin-colorized svg { fill: #05D5A3!important; }
 
-.PINK .coin-colorized svg { fill: #ED31CA!important; }
+.PIGGY > .coin-colorized svg { fill: #F27A7A!important; }
 
-.PIVX .coin-colorized svg { fill: #3b2f4d!important; }
+.PINK > .coin-colorized svg { fill: #ED31CA!important; }
 
-.POT .coin-colorized svg { fill: #105B2F!important; }
+.PIVX > .coin-colorized svg { fill: #3b2f4d!important; }
 
-.PPC .coin-colorized svg { fill: #3FA30C!important; }
+.POT > .coin-colorized svg { fill: #105B2F!important; }
 
-.QRK .coin-colorized svg { fill: #22AABF!important; }
+.PPC > .coin-colorized svg { fill: #3FA30C!important; }
 
-.RADS .coin-colorized svg { fill: #924cea!important; }
+.QRK > .coin-colorized svg { fill: #22AABF!important; }
 
-.RBIES .coin-colorized svg { fill: #C62436!important; }
+.RADS > .coin-colorized svg { fill: #924cea!important; }
 
-.RBT .coin-colorized svg { fill: #0d4982!important; }
+.RBIES > .coin-colorized svg { fill: #C62436!important; }
 
-.RBY .coin-colorized svg { fill: #D31F26!important; }
+.RBT > .coin-colorized svg { fill: #0d4982!important; }
 
-.RDD .coin-colorized svg { fill: #ED1C24!important; }
+.RBY > .coin-colorized svg { fill: #D31F26!important; }
 
-.REP .coin-colorized svg { fill: #40a2cb!important; }
+.RDD > .coin-colorized svg { fill: #ED1C24!important; }
 
-.RISE .coin-colorized svg { fill: #43CEA2!important; }
+.REP > .coin-colorized svg { fill: #40a2cb!important; }
 
-.SAR .coin-colorized svg { fill: #1B72B8!important; }
+.RISE > .coin-colorized svg { fill: #43CEA2!important; }
 
-.SCOT .coin-colorized svg { fill: #3498DB!important; }
+.SAR > .coin-colorized svg { fill: #1B72B8!important; }
 
-.SDC .coin-colorized svg { fill: #981D2D!important; }
+.SCOT > .coin-colorized svg { fill: #3498DB!important; }
 
-.SIA .coin-colorized svg { fill: #00CBA0!important; }
+.SDC > .coin-colorized svg { fill: #981D2D!important; }
 
-.SJCX .coin-colorized svg { fill: #003366!important; }
+.SIA > .coin-colorized svg { fill: #00CBA0!important; }
 
-.SLG .coin-colorized svg { fill: #5A6875!important; }
+.SJCX > .coin-colorized svg { fill: #003366!important; }
 
-.SLS .coin-colorized svg { fill: #1EB549!important; }
+.SLG > .coin-colorized svg { fill: #5A6875!important; }
 
-.SNRG .coin-colorized svg { fill: #160363!important; }
+.SLS > .coin-colorized svg { fill: #1EB549!important; }
 
-.START .coin-colorized svg { fill: #01AEF0!important; }
+.SNRG > .coin-colorized svg { fill: #160363!important; }
 
-.STEEM .coin-colorized svg { fill: #1A5099!important; }
+.START > .coin-colorized svg { fill: #01AEF0!important; }
 
-.STR .coin-colorized svg { fill: #08B5E5!important; }
+.STEEM > .coin-colorized svg { fill: #1A5099!important; }
 
-.STRAT .coin-colorized svg { fill: #2398dd!important; }
+.STR > .coin-colorized svg { fill: #08B5E5!important; }
 
-.SWIFT .coin-colorized svg { fill: #428BCA!important; }
+.STRAT > .coin-colorized svg { fill: #2398dd!important; }
 
-.SYNC .coin-colorized svg { fill: #008DD2!important; }
+.SWIFT > .coin-colorized svg { fill: #428BCA!important; }
 
-.SYS .coin-colorized svg { fill: #0098DA!important; }
+.SYNC > .coin-colorized svg { fill: #008DD2!important; }
 
-.TRIG .coin-colorized svg { fill: #1fbff4!important; }
+.SYS > .coin-colorized svg { fill: #0098DA!important; }
 
-.TX .coin-colorized svg { fill: #1F8BCC!important; }
+.TRIG > .coin-colorized svg { fill: #1fbff4!important; }
 
-.UBQ .coin-colorized svg { fill: #00ec8d!important; }
+.TX > .coin-colorized svg { fill: #1F8BCC!important; }
 
-.UNITY .coin-colorized svg { fill: #ED8527!important; }
+.UBQ > .coin-colorized svg { fill: #00ec8d!important; }
 
-.USDT .coin-colorized svg { fill: #2CA07A!important; }
+.UNITY > .coin-colorized svg { fill: #ED8527!important; }
 
-.VIOR .coin-colorized svg { fill: #1F52A4!important; }
+.USDT > .coin-colorized svg { fill: #2CA07A!important; }
 
-.VNL .coin-colorized svg { fill: #404249!important; }
+.VIOR > .coin-colorized svg { fill: #1F52A4!important; }
 
-.VPN .coin-colorized svg { fill: #589700!important; }
+.VNL > .coin-colorized svg { fill: #404249!important; }
 
-.VRC .coin-colorized svg { fill: #418bca!important; }
+.VPN > .coin-colorized svg { fill: #589700!important; }
 
-.VTC .coin-colorized svg { fill: #1b5c2e!important; }
+.VRC > .coin-colorized svg { fill: #418bca!important; }
 
-.WAVES .coin-colorized svg { fill: #24aad6!important; }
+.VTC > .coin-colorized svg { fill: #1b5c2e!important; }
 
-.XAI .coin-colorized svg { fill: #2ef99f!important; }
+.WAVES > .coin-colorized svg { fill: #24aad6!important; }
 
-.XBS .coin-colorized svg { fill: #d3261d!important; }
+.XAI > .coin-colorized svg { fill: #2ef99f!important; }
 
-.XCP .coin-colorized svg { fill: #EC1550!important; }
+.XBS > .coin-colorized svg { fill: #d3261d!important; }
 
-.XEM .coin-colorized svg { fill: #41bf76!important; }
+.XCP > .coin-colorized svg { fill: #EC1550!important; }
 
-.XMR .coin-colorized svg { fill: #FF6600!important; }
+.XEM > .coin-colorized svg { fill: #41bf76!important; }
 
-.XPM .coin-colorized svg { fill: #e5b625!important; }
+.XMR > .coin-colorized svg { fill: #FF6600!important; }
 
-.XRP .coin-colorized svg { fill: #346AA9!important; }
+.XPM > .coin-colorized svg { fill: #e5b625!important; }
 
-.XTZ .coin-colorized svg { fill: #A6DF00!important; }
+.XRP > .coin-colorized svg { fill: #346AA9!important; }
 
-.XVG .coin-colorized svg { fill: #42AFB2!important; }
+.XTZ > .coin-colorized svg { fill: #A6DF00!important; }
 
-.YBC .coin-colorized svg { fill: #D6C154!important; }
+.XVG > .coin-colorized svg { fill: #42AFB2!important; }
 
-.ZEC .coin-colorized svg { fill: #e5a93d!important; }
+.YBC > .coin-colorized svg { fill: #D6C154!important; }
 
-.ZEIT .coin-colorized svg { fill: #ACACAC!important; }
+.ZEC > .coin-colorized svg { fill: #e5a93d!important; }
+
+.ZEIT > .coin-colorized svg { fill: #ACACAC!important; }
+
+.MNZ .coin-bg { background-color: #242E3A!important }
 
 .ADC .coin-bg { background-color: #3CB0E5!important; }
 
@@ -1739,9 +1754,11 @@ a {
           align-items: center;
 }
 
-.window__controls a svg { -webkit-transition: all .3s ease; transition: all .3s ease }
-
-.window__controls:hover a svg .hidden { display: inherit !important }
+.window__controls a svg {
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    will-change: transform;
+}
 
 /*
   Window Header Component
@@ -1766,21 +1783,27 @@ a {
     z-index: 10000;
 }
 
-.window-header-logo, .window-header-logo svg {
+.window-header-logo, .window-header-logo i, .window-header-logo svg {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-negative: 0;
         flex-shrink: 0;
     width: 30px;
-    height: 40px;
+    height: 30px;
 }
+
+.window-header-logo { margin-bottom: 6px }
 
 .window-header-logo svg {
     -webkit-transform: scale(5);
             transform: scale(5);
     -webkit-transform-origin: 55% 76%;
             transform-origin: 55% 76%;
+}
+
+.window-header-logo svg g {
+    fill: #FFF !important
 
 }
 
@@ -1798,8 +1821,8 @@ a {
     will-change: transform, opacity;
     border-radius: 5px 5px 0 0;
     opacity: 0;
-    -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
     padding: 20px 10px 0;
     margin: 0;
 
@@ -1827,6 +1850,8 @@ a {
     opacity: 1;
     -webkit-transform: translateY(0px);
             transform: translateY(0px);
+    will-change: transform;
+
 }
 
 /* TITLE */
@@ -1851,12 +1876,13 @@ a {
         -ms-flex-direction: column;
             flex-direction: column;
     z-index: 0;
-    pointer-events: none
+    pointer-events: none;
+    will-change: transform;
+
 }
 
 .window__title h1 {
     font-size: 1em;
-    margin: -10px 0 0;
     color: #FFF
 }
 
@@ -1998,8 +2024,8 @@ a {
 }
 
 a {
-    color: #4C84FF;
     cursor: pointer;
+    color: #04050A;
 }
 
 .loader {
@@ -2080,7 +2106,7 @@ a {
 */
 
 .notifier {
-    position: absolute;
+    position: fixed;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2095,10 +2121,12 @@ a {
         -ms-flex-direction: column;
             flex-direction: column;
     width: 100vw;
-    min-height: 30vh;
+    min-height: 100vh;
     padding: 5vh 20px;
     left: 0;
-    z-index: 1000;
+    top: 0;
+    right: 0;
+    z-index: 2000;
 }
 
 .notifier-title {
@@ -2141,17 +2169,17 @@ a {
     pointer-events: all;
 }
 
-.notifier-list {
+.notifier-items {
     -ms-flex-negative: 0;
         flex-shrink: 0;
-    list-style: none;
+    items-style: none;
     padding: 0;
     margin: 0;
     font-size: 1em;
     width: 100%;
 }
 
-.notifier-list li {
+.notifier-items li {
     -ms-flex-negative: 0;
         flex-shrink: 0;
     width: 100%;
@@ -2160,7 +2188,7 @@ a {
     text-overflow: ellipsis;
 }
 
-.notifier-list-close {
+.notifier-close {
     width: 200px;
     background: #04050A;
     margin: 20px;
@@ -2171,7 +2199,7 @@ a {
 /* animation state */
 
 .notifier {
-    position: absolute;
+    position: fixed;
     top: -100vh;
     -webkit-transition: all .32s ease-in-out;
     transition: all .32s ease-in-out;
@@ -2213,22 +2241,36 @@ input, [contenteditable=true], select, textarea {
     /* Ensure focus on inputs doesn't allow app dragging */
     -webkit-app-region: no-drag;
     border-radius: 4px;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+
 }
 
 input {
-    border: 0;
     height: 34px;
     padding: 2px 4px;
     width: auto;
 }
 
-input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
-    margin: 0;
+    -moz-appearance: none;
+    appearance: none;
 }
 
-input[type="number"] {
-    -moz-appearance: textfield;
+input:focus, textarea:focus {
+    border: 1px solid #2188ff;
+    -webkit-box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075), 0 0 0 0.2em rgba(3, 102, 214, .3);
+            box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075), 0 0 0 0.2em rgba(3, 102, 214, .3);
+}
+
+.select-container {
+    position: relative;
 }
 
 [contenteditable=true] { max-width: 100% }
@@ -2261,12 +2303,17 @@ button {
     background: transparent;
     border: none;
     color: inherit;
-    font-weight: 600;
     padding: 0;
     cursor: pointer;
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
     border-radius: 4px;
+    will-change: transform;
+    word-break: break-word;
+}
+
+button.lefttext {
+    text-align: left;
 }
 
 button.transparent {
@@ -2287,6 +2334,16 @@ button.withBorder {
             box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
                        0 0 0 1px rgba(0, 0, 0, .1),
                        0 12px 24px 0 rgba(31, 31, 31, .05);
+}
+
+button.link {
+    border-bottom: 1px solid #4C84FF;
+    border-radius: 0;
+}
+
+button.link:hover {
+    border-bottom-color: transparent;
+    color: #4C84FF
 }
 
 .Clipboard, .Openexternal {
@@ -2319,11 +2376,15 @@ button.withBorder {
 .action {
     padding: 10px 10px 10px 20px;
     border-radius: 4px;
-    text-transform: uppercase;
     font-size: 14px;
 }
 
+.action:not(.normaltext) {
+    text-transform: uppercase;
+}
+
 .action > span {
+    position: relative;
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
@@ -2333,6 +2394,10 @@ button.withBorder {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+}
+
+.action.centered span {
+    right: -16px;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -2347,7 +2412,6 @@ button.withBorder {
 .action > i svg {
     width: 20px;
     height: 20px;
-    fill: #FFF
 }
 
 .action:hover {
@@ -2365,6 +2429,8 @@ button.withBorder {
             box-shadow: 0 6px 20px rgba(0, 0, 0, .14);
 }
 
+.action:hover > i svg { fill: #FFF }
+
 /* primary */
 
 .action.primary {
@@ -2374,18 +2440,36 @@ button.withBorder {
             box-shadow: 0px 10px 20px #B2C8FC
 }
 
+.action.primary i svg { fill: #FFF }
+
 .action.primary > i { background-color: rgba(0, 0, 0, .2) }
 
 .action.primary > span { font-weight: 600; }
 
 .action.primary:hover > i { background: #04050A }
 
+/* danger */
+
+.action.danger {
+    background: #F33C3C;
+    color: #FFF;
+    -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, .1);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, .1)
+}
+
+.action.danger i svg { fill: #FFF }
+
+.action.danger > i { background-color: rgba(0, 0, 0, .2) }
+
+.action.danger > span { font-weight: 600; }
+
+.action.danger:hover > i { background: #04050A }
+
 /* dark */
 
 .action.dark {
     background-color: transparent;
     color: #04050A;
-    opacity: .4;
     -webkit-box-shadow: none;
             box-shadow: none
 }
@@ -2397,6 +2481,8 @@ button.withBorder {
 .action.dark > i {
     background: #04050A;
 }
+
+.action.dark > i svg { fill: #FFF }
 
 /* right */
 
@@ -2436,6 +2522,132 @@ button.withBorder {
     background-color: #F33C3C
 }
 
+.action.loading > i {
+    opacity: 0
+}
+
+ul[class*=list] {
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    background: #FFF;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05)
+}
+
+ul[class*=list] > li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    background-color: #FFF;
+    -webkit-box-shadow: 0 6px 20px rgba(0, 0, 0, .14);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .14);
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    cursor: pointer;
+    will-change: transform;
+    overflow: hidden;
+
+}
+
+ul[class*=list] > li > a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    height: 80px;
+    text-decoration: none;
+    width: 100%;
+    padding: 0px 20px 0px 20px;
+}
+
+ul[class*=list] [class*="_action"] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 30px;
+    background: transparent
+}
+
+ul[class*=list] [class*="_action"] svg {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    -webkit-transition: -webkit-transform .6s ease;
+    transition: -webkit-transform .6s ease;
+    transition: transform .6s ease;
+    transition: transform .6s ease, -webkit-transform .6s ease;
+}
+
+ul[class*=list] [class*="_action_loader"] {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px);
+    opacity: 0;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    width: 0px
+
+}
+
+ul[class*=list] [class*="_action_loader"] svg {
+    width: 40px;
+    height: 40px;
+}
+
+ul[class*=list] > li:hover, ul[class*=list] > li.enabling {
+    z-index: 1;
+    background: #4C84FF;
+}
+
+ul[class*=list] > li.enabling {
+    pointer-events: none
+}
+
+ul[class*=list] > li:hover .coin-colorized, ul[class*=list] > li:hover svg, ul[class*=list] > li.enabling svg, ul[class*=list] > li.enabling .coin-colorized {
+    color: #FFF !important;
+    fill: #FFF !important;
+}
+
+ul[class*=list] > li:hover code {
+    background: rgba(0, 0, 0, .1)
+}
+
+ul[class*=list] > li.enabling [class*="_action_loader"] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+    width: auto;
+}
+
 /*
   Form Styling Component ✏️
   ----
@@ -2455,6 +2667,33 @@ button.withBorder {
     margin: 0;
     padding: 0;
     margin-bottom: 20px;
+}
+
+.label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    font-weight: 600;
+    padding: 10px 4px 20px 10px;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+}
+
+.label .label-title {
+    margin-right: auto;
+    font-weight: 400;
+    font-size: 1.1em;
+    opacity: .5;
+    color: #04050A
+}
+
+.label .link {
+    margin-left: 10px;
 }
 
 .legend {
@@ -2477,28 +2716,34 @@ button.withBorder {
     border-bottom: 2px solid #4C84FF;
 }
 
+hr {
+    width: 100%;
+    border: none;
+    background: transparent
+}
+
+.react-toggle:hover {
+    opacity: 1
+}
+
 .react-toggle--checked .react-toggle-track {
-    background: #783FEA
+    background: #04050A
 }
 
 .react-toggle--checked .react-toggle-thumb {
-    border-color: #783FEA
+    border-color: #04050A
 }
 
 .react-toggle-track {
-    background-color: #E0DCE9
-}
-
-.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #E0DCE9
+    background-color: #04050A
 }
 
 .react-toggle--checked .react-toggle-track {
-  background-color: #783FEA;
+  background-color: #04050A
 }
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #783FEA;
+  background-color: #04050A
 }
 
 .react-toggle--focus .react-toggle-thumb {
@@ -2513,135 +2758,47 @@ button.withBorder {
   ----
 */
 
-.c-progress {
+.progress_bar {
+    position: relative;
   -webkit-appearance: none;
-  height: 4px;
+  height: 6px;
   width: 100%;
-  overflow: hidden;
-  border-radius: 4px;
   -webkit-transition: .12s ease-in-out;
   transition: .12s ease-in-out;
+  margin-bottom: 20px;
 }
 
-.c-progress::-webkit-progress-bar { background-color: #D7D7D7; }
+.progress_bar::-webkit-progress-bar {
+      background-color: #D7D7D7;
+      border-radius: 3px;
 
-.c-progress::-webkit-progress-value {
+  }
+
+.progress_bar::-webkit-progress-value {
     background-image: -webkit-gradient(linear, left top, right top, from(#9300FF), color-stop(49%, #5272E2), color-stop(98%, #05E6B5));
     background-image: linear-gradient(90deg, #9300FF 0%, #5272E2 49%, #05E6B5 98%);
     -webkit-box-shadow: inset 0 0 0 .5px rgba(255, 255, 255, .1);
             box-shadow: inset 0 0 0 .5px rgba(255, 255, 255, .1);
-    border-radius: 4px;
+    border-radius: 3px;
+    overflow: hidden;
   }
 
-.c-progress__transparent::-webkit-progress-bar { background-color: rgba(255, 255, 255, .2); }
+.progress_bar__transparent::-webkit-progress-bar { background-color: rgba(255, 255, 255, .2); }
 
-.toggler__wrapper {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    max-width: 100%;
-    pointer-events: none;
-    -webkit-transition: all .12s ease-in-out;
-    transition: all .12s ease-in-out;
-    will-change: all;
+.progress_bar:after {
+    position: absolute;
+    top: 10px;
+    right: 0;
+  content: 'progress ' attr(value)' %';
+  font-size: 12px;
 }
 
-.toggler__wrapper > * { pointer-events: all }
-
-.toggler__broadcaster {
-    min-width: 143px;
-    min-height: 143px;
-    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, .05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, .05);
-    color: #FFF;
-    font-weight: 600;
-    font-size: 1.8em;
-    cursor: pointer;
-    outline: 0;
-    border: 0;
-    background: #F33C3C;
-    overflow: hidden;
-
-}
-
-.toggler__broadcaster:hover svg { fill: #FFF }
-
-.toggler__broadcaster i, .toggler__broadcaster i svg {
-    overflow: hidden;
-    border-radius: 4px;
-    height: 54px;
-    width: 54px;
-}
-
-.toggler__player {
-    position: relative; /*cancel*/
-    height: 50px;
-    margin-top: 30px;
-    max-width: 400px;
-}
-
-.toggler__player_ID {
-    max-width: 400px;
-    font-size: 1.2em;
-}
-
-[class*='toggler__player-button'] {
-    height: 100%;
-    margin-left: 10px;
-    display: none;
-}
-
-.toggler__player-button-cancel {
-    /*keep input centered*/
-    margin-left: -30px;
-    margin-right: 10px;
-}
-
-.toggler__player-button-icon {
-    margin: 5px 0 0 5px;
-}
-
-.toggler__broadcaster {
-    text-transform: uppercase;
-}
-
-.toggler__broadcaster_recording-label {
-    -webkit-transition: all .12s ease-in-out;
-    transition: all .12s ease-in-out;
-    will-change: all;
-    opacity: 0;
-    width: 0px;
-    margin-right: 10px;
-    display: none;
-}
-
-/* states */
-
-.toggler__wrapper-playerFocused .toggler__broadcaster { display: none }
-
-.toggler__wrapper-playerFocused .toggler__player {
-    margin-bottom: 20px;
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-}
-
-.toggler__wrapper-playerFocused [class*='toggler__player-button'] {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-animation: fadeInFromNone 0.5s ease-out;
-            animation: fadeInFromNone 0.5s ease-out;
-}
-
-.app.recording .toggler__player  { display: none }
-
-/* labels states */
-
-.app.recording .toggler__broadcaster-label, .app:not(.recording) .toggler__timer, .app:not(.recording) .toggler__broadcaster i, .app.recording .toggler__inputID  { display: none }
-
-.app.playing .toggler__wrapper {
-    opacity: 0;
+.progress_bar:before {
+    position: absolute;
+    left: 0;
+    top: 10px;
+  content: attr(data-amount);
+  font-size: 12px;
 }
 
 .custom-tooltip {
@@ -2658,94 +2815,6 @@ button.withBorder {
     z-index: 100;
 }
 
-.controls-container, .control-container { width: 100% }
-
-.control-actions {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    height: 80px;
-    width: 100%;
-}
-
-.control-action {
-    margin: 0 10px;
-}
-
-.control-action > * {
-    background: transparent;
-    line-height: 1;
-    font-size: 1em;
-}
-
-.control-action > [class*='-label'] { margin-right: 5px }
-
-.control-action > * > [class*='-icon'] {
-    margin-right: 5px;
-}
-
-.control-action > * > [class*='-icon'] svg {
-    width: 30px;
-    height: 30px;
-}
-
-.control-action-item__counter-icon svg { fill: #FFF }
-
-.control-action-item__stop-icon svg {
-    border-radius: 4px;
-    fill: #F33C3C !important
-}
-
-.control-action-item__timer-label {
-    color: #4C84FF;
-    -webkit-animation: pulse 1.8s ease-in-out infinite alternate;
-            animation: pulse 1.8s ease-in-out infinite alternate;
-}
-
-.control-action-item__timer-label svg { fill: #4C84FF }
-
-.video-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-transition: opacity .12s ease-in-out, -webkit-transform .12s ease-in-out;
-    transition: opacity .12s ease-in-out, -webkit-transform .12s ease-in-out;
-    transition: transform .12s ease-in-out, opacity .12s ease-in-out;
-    transition: transform .12s ease-in-out, opacity .12s ease-in-out, -webkit-transform .12s ease-in-out;
-    will-change: transform, opacity, filter;
-    z-index: -1;
-    overflow: auto;
-}
-
-.app.loading .video-wrapper, .app.waiting .video-wrapper {
-    position: absolute;
-    opacity: .5;
-    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="15" /></filter></svg>#filter');
-    -webkit-filter: blur(15px);
-            filter: blur(15px);
-    -webkit-transform: scale(1.6);
-            transform: scale(1.6);
-    overflow: hidden;
-    pointer-events: none
-}
-
-/*recording*/
-
-/*playing*/
-
-video { min-height: 100vh }
-
-.video-js {
-    width: 100%;
-    height: 100%;
-}
-
-.vjs-control-bar { display: none !important }
-
 /*
   Modal Styling Component ✏️
   ----
@@ -2753,23 +2822,13 @@ video { min-height: 100vh }
 */
 
 .modal {
-    position: fixed;
+    position: relative;
     z-index: 1000;
-    top: 0;
-    left: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    background: #F4F5F9;
+    text-align: left;
 }
 
 .modal-header {
+    position: fixed;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2788,6 +2847,8 @@ video { min-height: 100vh }
             box-shadow:  0 6px 20px rgba(0, 0, 0, .04);
     z-index: 1;
     background: #FFF;
+    display: none
+
 }
 
 .modal-header h1 {
@@ -2797,7 +2858,7 @@ video { min-height: 100vh }
     font-weight: 200;
     font-size: 1.6em;
     text-align: left;
-    color: #04050A
+    color: #04050A;
 
 }
 
@@ -2852,28 +2913,70 @@ video { min-height: 100vh }
     fill: #FFF;
 }
 
+.modal-content-overlay {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    padding: 110px 10px 10px;
+    -webkit-transform: translateY(-20px) scale(.95);
+            transform: translateY(-20px) scale(.95);
+    will-change: transform;
+    -webkit-transition: all .1s ease;
+    transition: all .1s ease;
+    pointer-events: none
+}
+
+.modal-content-overlay > ul {
+    overflow: auto;
+    max-height: calc(100% - 100px);
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+    border-radius: 6px;
+    will-change: transform;
+}
+
 /* animation state */
 
 .modal {
-    top: -100vh;
     -webkit-transition: all .32s ease-in-out;
     transition: all .32s ease-in-out;
     will-change: all;
 }
 
-.modal.modal-open { top: 0 }
+.modal-display-content.modal-content-overlay {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1);
+            transform: translateY(0) scale(1);
+}
+
+.modal-display-content.modal-content-overlay > ul { pointer-events: all }
 
 .ReactTable {
     border: 0;
-    background: #F4F5F9;
-    color: #04050A;
+    background: #04050A;
+    color: #FFF;
     width: 100%;
 }
 
 .rt-thead  {
-    background: #FFF;
+    background: #000;
     font-weight: 400;
-    color: #04050A;
+    color: #FFF;
 }
 
 .ReactTable .rt-thead .rt-th {
@@ -2891,7 +2994,6 @@ video { min-height: 100vh }
 }
 
 .ReactTable .-pagination {
-    background: #FFF;
     -webkit-box-shadow: none;
             box-shadow: none
 }
@@ -2904,15 +3006,17 @@ video { min-height: 100vh }
 }
 
 .ReactTable .rt-tbody .rt-td {
-    padding: 10px
+    padding: 10px;
+    text-align: center;
+
 }
 
 .ReactTable.-striped .rt-tr.-odd {
-    background: rgba(0, 0, 0, .02);
+    background: rgba(256, 256, 256, .05);
 }
 
 .ReactTable.-striped .rt-tr.selected {
-
+    color: #4C84FF;
 }
 
 .ReactTable .rt-thead .rt-th.-sort-asc:before, .ReactTable .rt-thead .rt-td.-sort-asc:before{
@@ -2949,14 +3053,13 @@ video { min-height: 100vh }
     display: -ms-flexbox;
     display: flex;
     position: relative;
-    min-height: 18vh;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding: 20px 20px 0px 30px;
+    padding: 20px;
     background: #F4F5F9;
     color: #04050A;
     width: 100%
@@ -2971,16 +3074,16 @@ video { min-height: 100vh }
             align-items: center;
     margin-right: 20px;
     position: absolute;
-    top: 20px;
-    left: 10px;
+    top: 10px;
+    left: 0px;
 }
 
 .wallet-wallets-header-back i, .wallet-wallets-header-back i svg {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 }
 
-.wallet-wallets-header-back i {
+.wallet-wallets-header-back i svg {
     -webkit-transform: rotate(-180deg) !important;
             transform: rotate(-180deg) !important;
 }
@@ -2997,6 +3100,19 @@ video { min-height: 100vh }
     padding: 0;
     font-size: 1.6em;
     font-weight: 600
+}
+
+.component-header-withBack {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
 }
 
 .component-header-centered h2 {
@@ -3024,7 +3140,69 @@ video { min-height: 100vh }
     color: #959CAE;
     padding-top: 4px;
     font-weight: 400;
-    margin-top: -10px;
+    margin-top: -4px;
+}
+
+.growler {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    z-index: 2000;
+    text-align: center;
+    pointer-events: none;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+
+}
+
+.growler .growler-success {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    background: #05E6B5;
+    color: #FFF;
+    padding: 10px;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+    border-radius: 4px;
+}
+
+.growler .growler-success i, .growler .growler-success i svg {
+    width: 40px;
+    height: 40px;
+}
+
+.growler .growler-success i svg {
+    fill: #FFF;
+}
+
+/* state */
+
+.growler:empty {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
 }
 
 .dashboard, .dashboard-noChain {
@@ -3043,6 +3221,14 @@ video { min-height: 100vh }
 
 .dashboard-wallets, .dashboard-wallets-header, .dashboard-wallets-list { width: 100% }
 
+.dashboard-wallets-header {
+    height: 120px;
+}
+
+.dashboard-wallets-list {
+    max-height: calc(100vh - 120px);
+}
+
 .dashboard-balances-pie {
     width: 60px !important;
     height: 60px !important;
@@ -3060,8 +3246,24 @@ video { min-height: 100vh }
     bottom: 0;
 }
 
-.dashboard-wallets-list {
-    list-style: none;
+/* context */
+
+.dashboard-empty {
+    padding: 20px;
+    background:  #F33C3C;
+    color: #FFF
+
+}
+
+.dashboard-empty h3 {
+    text-align: center;
+}
+
+.dashboard-empty p {
+    opacity: .8
+}
+
+.trade, .trade-body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3069,45 +3271,28 @@ video { min-height: 100vh }
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    padding: 0;
-    margin: 0;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+}
+
+.trade-body {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1
+}
+
+.trade-body > [class*="action"] {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
     overflow: auto;
-    background: #FFF;
-    max-height: 60vh
 }
 
-.dashboard-wallets-list li {
-    width: 100%;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-    background-color: #FFF;
-    -webkit-box-shadow: 0 6px 20px rgba(0, 0, 0, .14);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, .14);
-    border-bottom: 1px solid rgba(0, 0, 0, .1);
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
-    cursor: pointer;
-}
-
-.dashboard-wallets-list li > a {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    height: 80px;
-    text-decoration: none;
-    width: 100%;
-    padding: 0px 20px 0px 20px;
-}
-
-.dashboard-wallets-list-item_icon {
-    width: 60px;
+.trade-processing {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3117,120 +3302,133 @@ video { min-height: 100vh }
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    background: rgba(256, 256, 256, .1);
-    padding: 10px;
-    border-radius: 50%;
-    -webkit-transition: -webkit-transform .4s ease;
-    transition: -webkit-transform .4s ease;
-    transition: transform .4s ease;
-    transition: transform .4s ease, -webkit-transform .4s ease;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
-                       0 0 0 1px rgba(0, 0, 0, .1),
-                       0 12px 24px 0 rgba(31, 31, 31, .05);
-            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
-                       0 0 0 1px rgba(0, 0, 0, .1),
-                       0 12px 24px 0 rgba(31, 31, 31, .05)
-
-}
-
-.dashboard-wallets-list-item_icon > * {
-    width: 40px;
-    height: 40px;
-    font-size: 2.1em;
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
-}
-
-.dashboard-wallets-list-item_balance {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    position: relative;
-    padding-left: 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-transition: -webkit-transform .4s ease;
-    transition: -webkit-transform .4s ease;
-    transition: transform .4s ease;
-    transition: transform .4s ease, -webkit-transform .4s ease;
-    color: #04050A
 }
 
-.dashboard-wallets-list-item_balance small { color: #959CAE }
+.trade-processing h3 { font-weight: 200 }
 
-.dashboard-wallets-list-item_action {
+.trade, .trade-body {
+    width: 100%;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -ms-flex-negative: 0;
+        flex-shrink: 0
+}
+
+.trade-body {
+    position: relative;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    will-change: transform;
+}
+
+.trade-type {
+    list-style: none;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 30px;
-    background: transparent
-}
-
-.dashboard-wallets-list-item_action svg {
-    position: relative;
-    width: 20px;
-    height: 20px;
-    left: 0;
-    -webkit-transition: -webkit-transform .6s ease;
-    transition: -webkit-transform .6s ease;
-    transition: transform .6s ease;
-    transition: transform .6s ease, -webkit-transform .6s ease;
-}
-
-/* context */
-
-.dashboard-wallets-list li:hover {
-    z-index: 1;
-    background: #4C84FF;
-}
-
-.dashboard-wallets-list li:hover .coin-colorized, .dashboard-wallets-list li:hover svg {
-    color: #FFF !important;
-    fill: #FFF !important;
-}
-
-.dashboard-wallets-list li:hover .dashboard-wallets-list-item_icon {
-    -webkit-transform:scale(1.05);
-            transform:scale(1.05)
-}
-
-.dashboard-wallets-list li:hover .dashboard-wallets-list-item_balance {
-    color: #FFF;
-    -webkit-transform: translateX(2px);
-            transform: translateX(2px)
-}
-
-.dashboard-wallets-list li:hover .dashboard-wallets-list-item_balance small {
-    color: rgba(256, 256, 256, .4)
-}
-
-.dashboard-wallets-list li:hover .dashboard-wallets-list-item_action svg {
-    fill: #FFF;
-    -webkit-transform: translateX(10px) scale(1.1);
-            transform: translateX(10px) scale(1.1)
-}
-
-.trade, .trade-body {
-    width: 100%
-}
-
-.trade > h2 {
-    font-size: 1em;
-    font-weight: 400;
-    color: #4C84FF;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 0;
     margin: 0;
-    padding: 10px 10px 0px 10px;
+    color: #777F8A;
+    width: 100%;
+    z-index: 1000;
+    background:#F4F5F9;
+}
+
+.trade-type-item {
+    height: 70px;
+    padding: 10px 8px 2px 8px;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    border: 1px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, .1);
+    opacity: .5
+}
+
+.trade-type-item:hover, .trade-buy .trade-type-item-buy, .trade-sell .trade-type-item-sell, .trade-wallet .trade-type-item-wallet, .trade-charts .trade-type-item-charts, .trade-orders .trade-type-item-orders{ opacity: 1 }
+
+.trade-buy .trade-type-item-buy, .trade-sell .trade-type-item-sell, .trade-wallet .trade-type-item-wallet, .trade-charts .trade-type-item-charts, .trade-orders .trade-type-item-orders {
+    background: #FFF;
+    border-bottom-color: transparent;
+    border-top-color: rgba(0, 0, 0, .1);
+    font-weight: 600;
+    color: #04050A;
+}
+
+.trade-buy .trade-type-item-buy, .trade-sell .trade-type-item-sell, .trade-wallet .trade-type-item-wallet, .trade-charts .trade-type-item-charts, .trade-orders .trade-type-item-orders {
+    border-left: 1px solid rgba(0, 0, 0, .1);
+    border-top-left-radius: 4px;
+}
+
+.trade-buy .trade-type-item-buy, .trade-sell .trade-type-item-sell, .trade-wallet .trade-type-item-wallet, .trade-charts .trade-type-item-charts, .trade-orders .trade-type-item-orders {
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    border-top-right-radius: 4px;
+}
+
+.trade-type-item button > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 60px;
+}
+
+.trade-type-item i svg, .trade-type-item canvas {
+    width: 60px;
+    height: 30px;
+    fill: #04050A;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-transform-origin: top center;
+            transform-origin: top center
+}
+
+.wallet:not(.wallet-ready) {
+    opacity: 0;
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+}
+
+.trade-base {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.trade-base > * {
+    margin-right: 4px;
+}
+
+.trade-base, .trade-base-wrapper, .trade-base-wrapper button {
+    width: 100%;
 }
 
 .trade-base button {
+    padding: 10px !important;
+    font-size: 1em;
     -webkit-box-shadow: 0 6px 20px rgba(0, 0, 0, .14) !important;
             box-shadow: 0 6px 20px rgba(0, 0, 0, .14) !important;
 }
@@ -3245,18 +3443,10 @@ video { min-height: 100vh }
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    padding: 10px 10px 20px 10px;
     background: #FFF;
 }
 
 .trade-base-icon {
-    border-radius: 50%;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
-                       0 0 0 1px rgba(0, 0, 0, .1),
-                       0 12px 24px 0 rgba(31, 31, 31, .05);
-            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
-                       0 0 0 1px rgba(0, 0, 0, .1),
-                       0 12px 24px 0 rgba(31, 31, 31, .05);
     margin-right: 6px;
     width: 30px;
     height: 30px;
@@ -3269,58 +3459,46 @@ video { min-height: 100vh }
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    background-color: rgba(256, 256, 256, .1);
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
+    overflow: hidden;
+}
+
+.trade-base-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.trade-base-icon svg {
+    width: 36px;
+    height: 36px;
 }
 
 .trade-base-icon i {
     font-size: 1.2em
 }
 
-.trade-orderbook {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
+.trade-amount {
     position: relative;
-    z-index: 0
 }
 
-.trade-orderbook  .rt-tbody {
-    max-height: 300px;
+.trade-orderbook {
+    background: #04050A;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    overflow: auto;
 }
 
 .trade-action {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    position: relative;
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    z-index: 100;
-    -webkit-transform: translateY(10px);
-            transform: translateY(10px);
-    opacity: 0;
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
-    pointer-events: none;
-    will-change: transform;
-}
-
-.trade-action-wrapper {
-    min-width: 80%;
-    padding: 10px;
-    border-radius: 4px;
-    background: #FFF;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3328,25 +3506,58 @@ video { min-height: 100vh }
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
-                       0 0 0 1px rgba(0, 0, 0, .1),
-                       0 12px 24px 0 rgba(31, 31, 31, .05);
-            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
-                       0 0 0 1px rgba(0, 0, 0, .1),
-                       0 12px 24px 0 rgba(31, 31, 31, .05);
+    padding: 10px;
+    bottom: 0px;
+    left: 0;
+    z-index: 100;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    will-change: transform;
+    z-index: 1;
+
+}
+
+.trade-action-wrapper {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    min-width: 100%;
+    border-radius: 4px;
+    background: #FFF;
+    color: #04050A;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .trade-amount {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     width: 100%;
 }
 
-.trade-action-wrapper button { -webkit-box-shadow: none !important; box-shadow: none !important }
+.trade-amount_input-wrapper input {
+    min-width: 100%;
+    position: absolute;
+    right: 0;
+    padding: 25px 10px 25px 14px;
+    font-weight: 600
+}
 
 .trade-action-wrapper button div.validation {
     display: -webkit-box;
@@ -3359,6 +3570,90 @@ video { min-height: 100vh }
 }
 
 .trade-amount_input {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+}
+
+.trade-amount_input > * {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+}
+
+.trade-amount_input > * > * {
+    width: 100%
+}
+
+.trade-amount_input-wrapper  {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    height: 40px;
+}
+
+.trade-amount_input-wrapper .trade-setMax {
+    position: relative;
+    z-index: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: rgba(0, 0, 0, .1);
+    border: 1px solid rgba(0, 0, 0, .1);
+    padding: 7px 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.trade-amount_input-wrapper .trade-setMax:hover {
+    color: #4C84FF;
+    border: 1px solid #4C84FF;
+}
+
+.trade-action-max .trade-amount_input-wrapper .trade-setMax {
+    background: #4C84FF;
+    color: #FFF;
+    pointer-events: none
+}
+
+.trade-rel {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.trade-rel > * {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+}
+
+.action.trade-pair { padding: 0 }
+
+.action.trade-pair > strong {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3368,36 +3663,307 @@ video { min-height: 100vh }
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    font-weight: bold;
-    width: 100%;
+    z-index: 1
 }
 
-.trade-amount_input input { color: #04050A }
+.trade-amount .label.trade-rel {
+    padding: 10px 4px 10px 4px
+}
 
-.trade-action-amountRel { display: -webkit-box; display: -ms-flexbox; display: flex }
+.trade-amount .label.trade-rel strong { color: #04050A }
 
-.trade-action-amountRel > * { margin-right: 4px }
+.trade-amount .label.trade-rel button {
+    background: #FFF;
+    width: 100%;
+    font-size: 1em
+}
+
+.trade-amount .label.trade-rel button > span {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+}
+
+.trade-rel > *:first-child button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.trade-rel > *:last-child button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0
+}
+
+.trade-buy-label, .trade-sell-label {
+    position: absolute;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    left: -100px;
+}
+
+.trade-sell-label {
+    left: auto;
+    right: -90px;
+}
+
+.trade .react-toggle-track-check, .trade .react-toggle--checked .react-toggle-track-x {
+    opacity: .4
+}
+
+.trade .react-toggle--checked .react-toggle-track-check { opacity: 1 }
+
+.trade-action-amountRel {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    font-weight: 600;
+}
+
+.trade-action-amountRel small {
+    font-weight: 200;
+
+}
+
+.trade-action-amountRel-title { font-size: 1.2em }
+
+.trade-amount_input_address, .trade-amount_input_amount {
+    margin-bottom: 20px;
+}
 
 .trade-amount_input_rate {
     position: relative;
-    color: #777F8A;
-    top: -10px
 }
 
-/* contexts */
+.trade-amount_input > *, .trade-amount_input_rate > * {
+    width: 100%;
+}
 
-.trade-ratePicked .trade-action {
-    opacity: 1;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    pointer-events: all;
+.trade-amount_input > * {
+    margin-bottom: 30px;
+}
+
+.trade-button-wrapper {
+    width: 100%
+}
+
+.trade-button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 30px 20px;
+    font-size: 1em;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    text-align: left;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important
+}
+
+.trade-button  i svg {
+    width: 40px;
+    height: 40px;
+}
+
+/* deposit */
+
+.trade-deposit {
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+    border-radius: 4px;
+    padding: 0 10px 10px
+}
+
+.trade-deposit, .trade-deposit-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.trade-deposit, .trade-deposit-body, .trade-deposit-address {
+    width: 100%;
+}
+
+.trade-deposit-address {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%
+}
+
+.trade-deposit-address button {
+    text-align: left;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+    color: #04050A;
+    margin-top: 10px;
+    background: #FFF;
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+.trade-deposit-address button span {
+    display: inline-block;
+    word-wrap: break-word;
+    max-width: calc(100% - 80px);
+    text-align: left;
+    font-size: .8em;
+
+}
+
+.trade-deposit h2 {
+    font-size: 1.2em;
+    margin: 0
+}
+
+.trade-deposit-amount {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+.trade-deposit-amount-left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-right: 10px;
+}
+
+.trade-deposit-amount-left i, .trade-deposit-amount-left i svg {
+    width: 30px;
+    height: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.trade-deposit-amount-left i {
+    margin-left: 4px;
+}
+
+.trade-deposit-amount p {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0;
+    text-align: left;
+ }
+
+.trade-deposit-amount-left-balance {
+    color: #04050A;
+    opacity: .5
+}
+
+/* charts */
+
+.trade-view-charts {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    background-color: #FFF;
+    font-size: 1em;
+    font-weight: 400
+}
+
+.trade-view-charts h3 {
+    font-size: 4em;
+}
+
+.trade-view-charts h3, .trade-view-charts h4 {
+    margin: 0;
+    text-transform: uppercase;
+    color: #04050A
+}
+
+.login {
+    height: 100vh
 }
 
 .login, .login .form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    height: 100%;
     overflow: auto;
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -3408,18 +3974,40 @@ video { min-height: 100vh }
     background: #F4F5F9;
 }
 
+.login-localStorage .form {
+    display: none
+}
+
+.login-newpassphrase {
+    margin-top: 20px;
+}
+
+.login-passphrase-notice {
+    background: #F33C3C;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: left;
+    height: 90px;
+    padding: 0 20px;
+
+}
+
+.login-passphrase-notice span { font-weight: 400 }
+
 .login .form {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    padding: 0px 60px 100px;
+    padding: 0px 10px;
 }
 
 .login-button {
     width: 100%;
-    padding: 20px;
-    font-size: 1em
+    height: 90px;
+    padding: 0 20px;
+    font-size: 1em;
 }
 
 .login textarea {
@@ -3427,22 +4015,9 @@ video { min-height: 100vh }
     padding: 10px 10px;
     margin-bottom: 20px;
     min-width: inherit;
-    width: 320px;
+    width: 360px;
     height: 180px;
     resize: none;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
-                       0 0 0 1px rgba(0, 0, 0, .1),
-                       0 12px 24px 0 rgba(31, 31, 31, .05);
-            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
-                       0 0 0 1px rgba(0, 0, 0, .1),
-                       0 12px 24px 0 rgba(31, 31, 31, .05);
-    border: 1px solid transparent;
-}
-
-.login textarea:focus {
-    border: 1px solid #2188ff;
-    -webkit-box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075), 0 0 0 0.2em rgba(3, 102, 214, .3);
-            box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075), 0 0 0 0.2em rgba(3, 102, 214, .3);
 }
 
 .Placeholder {
@@ -3464,6 +4039,10 @@ video { min-height: 100vh }
 
 }
 
+.Placeholder-logo {
+    overflow: hidden;
+}
+
 .Placeholder-logo, .Placeholder-logo svg {
     display: inline-block;
     width: 260px;
@@ -3473,8 +4052,8 @@ video { min-height: 100vh }
 .Placeholder-logo svg {
     -webkit-transform: scale(3);
             transform: scale(3);
-    -webkit-transform-origin: 55% 76%;
-            transform-origin: 55% 76%;
+    -webkit-transform-origin: 55% 85%;
+            transform-origin: 55% 85%;
     pointer-events: none
 
 }
@@ -3501,58 +4080,16 @@ video { min-height: 100vh }
     font-weight: 200;
     font-size: 3.2em;
     color: #04050A;
+    margin: 0 0 20px 0;
 
 }
 
-.coinList {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    padding: 0;
-    margin: 0;
-    font-size: .8em;
-}
-
-.coinList .coinList-coin {
-    position: relative;
-    padding: 0;
-}
-
-.coinList-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+.coinList-coin {
     padding: 10px;
-    background: #FFF;
-    border-bottom: 1px solid rgba(0, 0, 0, .1)
 }
 
-.coinList .coinList-coin:hover .coinList-wrapper {
-    background: #4C84FF;
-    color: #FFF;
-    z-index: 2
-}
-
-.coinList .coinList-coin:hover .coinList-wrapper .coin-colorized {
-    color: #FFF !important;
-}
-
-.coinList .coinList-coin:hover .coinList-wrapper .coin-colorized svg {
-    fill: #FFF !important;
-}
-
-.coinList .coinList-coin:hover .coinList-wrapper code.coin-colorized {
-    color: #4C84FF !important
-}
-
-.coinList-coin-logo {
+.coinList-coin_icon {
+    width: 60px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3562,40 +4099,22 @@ video { min-height: 100vh }
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 100px;
-    height: 100px;
+    border-radius: 50%;
+    -webkit-transition: -webkit-transform .4s ease;
+    transition: -webkit-transform .4s ease;
+    transition: transform .4s ease;
+    transition: transform .4s ease, -webkit-transform .4s ease;
 }
 
-.coinList-coin-logo > * {
+.coinList-coin_icon > * {
     width: 60px;
     height: 60px;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
-                       0 0 0 1px rgba(0, 0, 0, .1),
-                       0 12px 24px 0 rgba(31, 31, 31, .05);
-            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
-                       0 0 0 1px rgba(0, 0, 0, .1),
-                       0 12px 24px 0 rgba(31, 31, 31, .05);
-    border-radius: 50%;
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
+    font-size: 2.1em;
+    -webkit-transform: rotate(8deg);
+            transform: rotate(8deg);
 }
 
-.coinList .coinList-coin .coinList-coin-name {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-}
-
-.coinList .coinList-coin .coinList-coin-name h2 {
+.coinList-coin_balance {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3603,46 +4122,101 @@ video { min-height: 100vh }
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    font-size: 1.4em;
-    margin: 0 20px 0 0
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    position: relative;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    -webkit-transition: -webkit-transform .4s ease;
+    transition: -webkit-transform .4s ease;
+    transition: transform .4s ease;
+    transition: transform .4s ease, -webkit-transform .4s ease;
+    color: #04050A
 }
 
-.coinList .coinList-coin .coinList-coin-name h2 small {
-    font-size: .6em;
-    font-weight: 200;
+.coinList-coin_balance small { color: #959CAE }
+
+/* context */
+
+.coinList-coin:hover .coinList-coin_icon {
+    -webkit-transform:scale(1.05);
+            transform:scale(1.05)
+}
+
+.coinList-coin:hover .coinList-coin_balance, .coinList-coin.enabling .coinList-coin_balance {
+    color: #FFF;
+    -webkit-transform: translateX(2px);
+            transform: translateX(2px)
+}
+
+.coinList-coin:hover .coinList-coin_balance small, .coinList-coin.enabling  .coinList-coin_balance small {
+    color: rgba(256, 256, 256, .4)
+}
+
+.coinList-coin:hover .coinList-coin_action svg {
+    fill: #FFF;
+    -webkit-transform: translateX(10px) scale(1.1);
+            transform: translateX(10px) scale(1.1)
+}
+
+/* LOADER */
+
+.coinList-coin.enabling .coinList-coin_action svg {
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px)
 }
 
 .wallet {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    background: #F4F5F9;
+    background: #FFF;
+    height: 100vh;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
 }
 
-.wallet .component-header { background: #FFF }
-
 .wallet-icon {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 10px;
+    background: #FFF;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
 }
 
 .wallet-icon > * {
@@ -3651,22 +4225,29 @@ video { min-height: 100vh }
 }
 
 .wallet-icon i {
-    background: #FFF;
-    border-radius: 50%;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
-                       0 0 0 1px rgba(0, 0, 0, .1),
-                       0 12px 24px 0 rgba(31, 31, 31, .05);
-            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
-                       0 0 0 1px rgba(0, 0, 0, .1),
-                       0 12px 24px 0 rgba(31, 31, 31, .05);
     font-size: 2.3em;
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
 }
 
 .wallet-wallets-header {
     -ms-flex-negative: 0;
-        flex-shrink: 0
+        flex-shrink: 0;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+
+.wallet-balance, .wallet-coinName {
+    color: #04050A;
 }
 
 .wallet-balance {
@@ -3675,6 +4256,8 @@ video { min-height: 100vh }
     font-size: .6em;
 }
 
+.wallet-balance { margin-bottom: 4px }
+
 .wallet-trade {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3682,28 +4265,279 @@ video { min-height: 100vh }
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
     width: 100%;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    padding-bottom: 20px;
 
 }
 
 .wallet-exchange {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     text-align: center;
-    width: 100%
+    width: 100%;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1
 }
 
 .wallet-trade-buy {
     margin-top: auto
+}
+
+/* context */
+
+.wallet:not(.wallet-ready) .wallet-wallets-header { -webkit-transform: translateY(300px); transform: translateY(300px) }
+
+.balance-action {
+    padding: 20px 10px 10px;
+}
+
+.balance-qr {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.balance-deposit-address {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    overflow: hidden;
+    padding: 10px 10px 30px;
+}
+
+.balance-deposit-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+.balance-deposit-address button {
+    background: #FFF;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2),
+                       0 0 0 1px rgba(0, 0, 0, .1),
+                       0 12px 24px 0 rgba(31, 31, 31, .05);
+    word-wrap: break-word;
+    width: 100%;
+    padding: 4 10px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    min-height: 54px;
+}
+
+.balance-deposit-address button span {
+    display: inline-block;
+    word-wrap: break-word;
+    width: calc(100% - 80px);
+    text-align: left;
+    font-size: .8em;
+
+}
+
+.deposit-withdrawConfirm, .deposit-tx {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.deposit-withdrawConfirm h3, .deposit-tx h3 {
+    color: #04050A;
+    margin-bottom: 40px;
+}
+
+.deposit-withdrawConfirm ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.deposit-withdrawConfirm ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.deposit-withdrawConfirm ul li strong {
+    padding-right: 20px;
+    text-align: right;
+    font-weight: 400;
+    color: #04050A;
+}
+
+.deposit-withdrawConfirm ul li strong:after {
+    content: ' :'
+}
+
+.deposit-withdrawConfirm-actions, .deposit-tx-actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 20px;
+}
+
+.deposit-withdrawConfirm-actions button:first-of-type {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.deposit-withdrawConfirm-actions button:last-of-type {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.deposit-withdrawConfirm button {
+    margin-top: 20px;
+}
+
+.deposit-withdrawConfirm button.primary {
+    padding: 20px;
+}
+
+.balance-showtx .balance-deposit, .balance-showtx .trade-button-wrapper, .balance-showtx .trade-amount_input_address, .balance-showtx .trade-amount_input_amount {
+    display: none;
+}
+
+.orders-list {
+    border-radius: 4px;
+}
+
+.orders-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.order-item-stopped {
+    opacity: .5;
+    pointer-events: none
+}
+
+.orders-item-details {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    padding: 10px;
+}
+
+.orders-item-details-action {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+.orders-item-details_action {
+    margin-left: 6px;
+}
+
+.orders-item-details-action-type {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    text-transform: uppercase;
+    color: #04050A;
+}
+
+.orders-item-details-meta {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.orders-item-details-meta div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+}
+
+.orders-item-details-meta div:first-child {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1
+}
+
+.order-stop {
+    padding: 5px 5px 5px 10px;
+}
+
+.order-stop i svg {
+    width: 10px;
+    height: 10px;
+    fill: #000
+}
+
+.orders-item:hover {
+    background: #FFF !important;
+    cursor: default;
+}
+
+.orders-list .orders-item:hover, .orders-list .orders-item:hover svg, .orders-list .orders-item:hover .coin-colorized {
+    color: inherit !important;
+    fill: inherit !important;
 }
 
 body {
@@ -3724,6 +4558,16 @@ body {
     max-height: 100vh;
 }
 
+/*.content-container.loading * {
+    pointer-events: none !important;
+    cursor: default !important;
+}
+
+.content-container.loading input,
+.content-container.loading textarea {
+    opacity: .4
+}*/
+
 .app.content-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -3735,7 +4579,7 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    padding: 40px 10px 10px 10px;
+    background: #F8FAFF;
 }
 
 .app.content-container .Placeholder { -webkit-box-flex: 1; -ms-flex: 1; flex: 1 }
@@ -3756,19 +4600,13 @@ body {
     pointer-events: none;
 }
 
-.app.content-container .app-view > * {
+.app.content-container .app-view > *:not(.notifier) {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     width: 100%;
     pointer-events: all;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.app.content-container .app-view > *:not(.notifier) {
-    -webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, .2);
-            box-shadow: 0px 2px 6px rgba(0, 0, 0, .2);
+    overflow: auto;
 }
 
 .app.content-container .window-footer { z-index: 0 }
